@@ -1091,13 +1091,36 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050042;
+        public static final int action_settings=0x7f050059;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
+        public static final int buttonNumber0=0x7f050049;
+        public static final int buttonNumber1=0x7f05004a;
+        public static final int buttonNumber2=0x7f05004b;
+        public static final int buttonNumber3=0x7f05004c;
+        public static final int buttonNumber4=0x7f05004d;
+        public static final int buttonNumber5=0x7f05004e;
+        public static final int buttonNumber6=0x7f05004f;
+        public static final int buttonNumber7=0x7f050050;
+        public static final int buttonNumber8=0x7f050051;
+        public static final int buttonNumber9=0x7f050052;
         public static final int buttonPlay=0x7f05003e;
-        public static final int buttonSettings=0x7f050041;
-        public static final int buttonTutorial=0x7f050040;
+        public static final int buttonPlay0=0x7f050040;
+        public static final int buttonPlay1=0x7f050048;
+        public static final int buttonPlay2=0x7f050047;
+        public static final int buttonPlay3=0x7f050046;
+        public static final int buttonPlay4=0x7f050045;
+        public static final int buttonPlay5=0x7f050044;
+        public static final int buttonPlay6=0x7f050043;
+        public static final int buttonPlay7=0x7f050042;
+        public static final int buttonPlay8=0x7f050041;
+        public static final int buttonPlay9=0x7f05003f;
+        public static final int buttonPlayd=0x7f050053;
+        public static final int buttonPlaygd=0x7f050055;
+        public static final int buttonPlaytd=0x7f050054;
+        public static final int buttonSettings=0x7f050058;
+        public static final int buttonTutorial=0x7f050057;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f050028;
@@ -1114,7 +1137,7 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
-        public static final int imageView1=0x7f05003f;
+        public static final int imageView1=0x7f050056;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
@@ -1207,7 +1230,7 @@ containing a value of this type.
         public static final int title=0x7f0c0001;
     }
     public static final class string {
-        public static final int FlummoxedLogo=0x7f0a0014;
+        public static final int FlummoxedLogo=0x7f0a001e;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f0a0001;
@@ -1250,6 +1273,16 @@ containing a value of this type.
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int action_settings=0x7f0a000f;
         public static final int app_name=0x7f0a000d;
+        public static final int button_0=0x7f0a0014;
+        public static final int button_1=0x7f0a0015;
+        public static final int button_2=0x7f0a0016;
+        public static final int button_3=0x7f0a0017;
+        public static final int button_4=0x7f0a0018;
+        public static final int button_5=0x7f0a0019;
+        public static final int button_6=0x7f0a001a;
+        public static final int button_7=0x7f0a001b;
+        public static final int button_8=0x7f0a001c;
+        public static final int button_9=0x7f0a001d;
         /**  Button Strings 
          */
         public static final int button_MainActivity=0x7f0a0011;

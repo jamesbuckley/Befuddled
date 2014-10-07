@@ -12,7 +12,7 @@
     <EditText
         android:id="@+id/editText1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="number" >
@@ -28,7 +28,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical" >
 
             <Button
@@ -39,7 +39,216 @@
                 android:layout_weight="1"
                 android:text="@string/button_MainActivity"
                 android:typeface="serif" />
+
+            <Button
+                android:id="@+id/buttonPlay9"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/button_MainActivity"
+                android:typeface="serif" />
+
+            <Button
+                android:id="@+id/buttonPlay0"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/button_MainActivity"
+                android:typeface="serif" />
+
+            <Button
+                android:id="@+id/buttonPlay8"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/button_MainActivity"
+                android:typeface="serif" />
+
+            <Button
+                android:id="@+id/buttonPlay7"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/button_MainActivity"
+                android:typeface="serif" />
+
+            <Button
+                android:id="@+id/buttonPlay6"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/button_MainActivity"
+                android:typeface="serif" />
+
+            <Button
+                android:id="@+id/buttonPlay5"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/button_MainActivity"
+                android:typeface="serif" />
+
+            <Button
+                android:id="@+id/buttonPlay4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/button_MainActivity"
+                android:typeface="serif" />
+
+            <Button
+                android:id="@+id/buttonPlay3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/button_MainActivity"
+                android:typeface="serif" />
+
+            <Button
+                android:id="@+id/buttonPlay2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/button_MainActivity"
+                android:typeface="serif" />
+
+            <Button
+                android:id="@+id/buttonPlay1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:text="@string/button_MainActivity"
+                android:typeface="serif" />
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonNumber0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_0"
+            android:typeface="normal" />
+
+        <Button
+            android:id="@+id/buttonNumber1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_1"
+            android:typeface="normal" />
+
+        <Button
+            android:id="@+id/buttonNumber2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_2"
+            android:typeface="normal" />
+
+        <Button
+            android:id="@+id/buttonNumber3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_3"
+            android:typeface="normal" />
+
+        <Button
+            android:id="@+id/buttonNumber4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_4"
+            android:typeface="normal" />
+
+        <Button
+            android:id="@+id/buttonNumber5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_5"
+            android:typeface="normal" />
+
+        <Button
+            android:id="@+id/buttonNumber6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_6"
+            android:typeface="normal" />
+
+        <Button
+            android:id="@+id/buttonNumber7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_7"
+            android:typeface="normal" />
+
+        <Button
+            android:id="@+id/buttonNumber8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_8"
+            android:typeface="normal" />
+
+        <Button
+            android:id="@+id/buttonNumber9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/button_9"
+            android:typeface="normal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/buttonPlayd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1.5"
+            android:text="@string/button_MainActivity"
+            android:typeface="serif" />
+
+        <Button
+            android:id="@+id/buttonPlaytd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:text="@string/button_MainActivity"
+            android:typeface="serif" />
+
+        <Button
+            android:id="@+id/buttonPlaygd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:text="@string/button_MainActivity"
+            android:typeface="serif" />
+    </LinearLayout>
 
 </LinearLayout>
