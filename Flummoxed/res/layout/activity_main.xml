@@ -32,95 +32,245 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <EditText
-                android:id="@+id/showAnswerText1"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:ems="10"
-                android:enabled="false"
-                android:inputType="none" />
+                android:orientation="horizontal" >
 
-            <EditText
-                android:id="@+id/showAnswerText2"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:enabled="false"
-                android:inputType="none" />
+                <EditText
+                    android:id="@+id/showAnswerText1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
 
-            <EditText
-                android:id="@+id/showAnswerText3"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:enabled="false"
-                android:inputType="none" />
+                <ImageView
+                    android:id="@+id/showAnswerImage1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/FlummoxedLogo"
+                    android:src="@drawable/ic_launcher" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/showAnswerText4"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:ems="10"
-                android:enabled="false"
-                android:inputType="none" />
+                android:orientation="horizontal" >
 
-            <EditText
-                android:id="@+id/showAnswerText5"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:enabled="false"
-                android:inputType="none" />
+                <EditText
+                    android:id="@+id/showAnswerText2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
 
-            <EditText
-                android:id="@+id/showAnswerText6"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:enabled="false"
-                android:inputType="none" />
+                <ImageView
+                    android:id="@+id/showAnswerImage2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/FlummoxedLogo"
+                    android:src="@drawable/ic_launcher" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/showAnswerText7"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:ems="10"
-                android:enabled="false"
-                android:inputType="none" />
+                android:orientation="horizontal" >
 
-            <EditText
-                android:id="@+id/showAnswerText8"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:enabled="false"
-                android:inputType="none" />
+                <EditText
+                    android:id="@+id/showAnswerText3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
 
-            <EditText
-                android:id="@+id/showAnswerText9"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:enabled="false"
-                android:inputType="none" />
+                <ImageView
+                    android:id="@+id/showAnswerImage3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/FlummoxedLogo"
+                    android:src="@drawable/ic_launcher" />
+            </LinearLayout>
 
-            <EditText
-                android:id="@+id/showAnswerText10"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:ems="10"
-                android:enabled="false"
-                android:inputType="none" />
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/showAnswerText4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <ImageView
+                    android:id="@+id/showAnswerImage4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/FlummoxedLogo"
+                    android:src="@drawable/ic_launcher" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/showAnswerText5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <ImageView
+                    android:id="@+id/showAnswerImage5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/FlummoxedLogo"
+                    android:src="@drawable/ic_launcher" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/showAnswerText6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <ImageView
+                    android:id="@+id/showAnswerImage6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/FlummoxedLogo"
+                    android:src="@drawable/ic_launcher" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/showAnswerText7"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <ImageView
+                    android:id="@+id/showAnswerImage7"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/FlummoxedLogo"
+                    android:src="@drawable/ic_launcher" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/showAnswerText8"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <ImageView
+                    android:id="@+id/showAnswerImage8"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/FlummoxedLogo"
+                    android:src="@drawable/ic_launcher" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/showAnswerText9"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <ImageView
+                    android:id="@+id/showAnswerImage9"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/FlummoxedLogo"
+                    android:src="@drawable/ic_launcher" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/showAnswerText10"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <ImageView
+                    android:id="@+id/showAnswerImage10"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/FlummoxedLogo"
+                    android:src="@drawable/ic_launcher" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 
@@ -230,6 +380,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1.5"
+            android:onClick="enterGuess"
             android:text="@string/button_enterGuess"
             android:typeface="serif" />
 
@@ -238,6 +389,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
+            android:onClick="backspace"
             android:text="@string/button_backspace"
             android:typeface="serif" />
 

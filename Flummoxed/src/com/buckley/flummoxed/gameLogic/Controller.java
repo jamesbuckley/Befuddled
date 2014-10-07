@@ -2,6 +2,8 @@ package com.buckley.flummoxed.gameLogic;
 
 /**
  * Created by ejambuc on 12/08/14.
+ * 
+ * This is a superfluous class. This class was the controller for regular desktop implementation. Not needed for android
  */
 public class Controller {
 
