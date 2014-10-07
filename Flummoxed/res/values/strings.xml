@@ -4,7 +4,7 @@
     <string name="app_name">Flummoxed</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">Flummoxed</string>
     
     <!-- Button Strings -->
     <string name="button_MainActivity">Play</string>
@@ -21,6 +21,10 @@
     <string name="button_7">7</string>
     <string name="button_8">8</string>
     <string name="button_9">9</string>
+    
+    <string name="button_enterGuess">Enter Guess</string>
+    <string name="button_backspace">Back Space</string>
+    <string name="button_quit">Quit</string>
     
     
     <string name="FlummoxedLogo">Flummoxed Logo</string>

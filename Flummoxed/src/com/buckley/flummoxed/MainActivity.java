@@ -1,9 +1,10 @@
 package com.buckley.flummoxed;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
+import android.view.*;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -30,5 +31,24 @@ public class MainActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	public void enterNumber(View view){
+		
+		TextView guessbar = (TextView) findViewById(R.id.guessBar);
+
+		if(canAcceptNumber(guessbar.getText().toString())){
+			Button numberButton = (Button) view;
+			String guess = (guessbar.getText().toString())+(numberButton.getText().toString());
+			guessbar.setText(guess);
+		}
+	}
+
+	/**
+	 * @return
+	 */
+	private boolean canAcceptNumber(String guess) {
+		if(guess.length()<5) return true;
+		return false;
 	}
 }

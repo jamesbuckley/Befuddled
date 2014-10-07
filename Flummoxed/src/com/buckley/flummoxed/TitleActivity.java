@@ -1,9 +1,9 @@
 package com.buckley.flummoxed;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.*;
 
 public class TitleActivity extends ActionBarActivity {
 
@@ -30,5 +30,11 @@ public class TitleActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	public void playGame(View view){
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
+		
 	}
 }

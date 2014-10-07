@@ -10,12 +10,13 @@
     tools:context="com.buckley.flummoxed.MainActivity" >
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/guessBar"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:ems="10"
-        android:inputType="number" >
+        android:enabled="false"
+        android:inputType="none" >
 
         <requestFocus />
     </EditText>
@@ -31,104 +32,95 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/buttonPlay"
+            <EditText
+                android:id="@+id/showAnswerText1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/button_MainActivity"
-                android:typeface="serif" />
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="none" />
 
-            <Button
-                android:id="@+id/buttonPlay9"
+            <EditText
+                android:id="@+id/showAnswerText2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/button_MainActivity"
-                android:typeface="serif" />
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="none" />
 
-            <Button
-                android:id="@+id/buttonPlay0"
+            <EditText
+                android:id="@+id/showAnswerText3"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/button_MainActivity"
-                android:typeface="serif" />
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="none" />
 
-            <Button
-                android:id="@+id/buttonPlay8"
+            <EditText
+                android:id="@+id/showAnswerText4"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/button_MainActivity"
-                android:typeface="serif" />
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="none" />
 
-            <Button
-                android:id="@+id/buttonPlay7"
+            <EditText
+                android:id="@+id/showAnswerText5"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/button_MainActivity"
-                android:typeface="serif" />
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="none" />
 
-            <Button
-                android:id="@+id/buttonPlay6"
+            <EditText
+                android:id="@+id/showAnswerText6"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/button_MainActivity"
-                android:typeface="serif" />
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="none" />
 
-            <Button
-                android:id="@+id/buttonPlay5"
+            <EditText
+                android:id="@+id/showAnswerText7"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/button_MainActivity"
-                android:typeface="serif" />
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="none" />
 
-            <Button
-                android:id="@+id/buttonPlay4"
+            <EditText
+                android:id="@+id/showAnswerText8"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/button_MainActivity"
-                android:typeface="serif" />
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="none" />
 
-            <Button
-                android:id="@+id/buttonPlay3"
+            <EditText
+                android:id="@+id/showAnswerText9"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/button_MainActivity"
-                android:typeface="serif" />
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="none" />
 
-            <Button
-                android:id="@+id/buttonPlay2"
+            <EditText
+                android:id="@+id/showAnswerText10"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginBottom="10dp"
                 android:layout_weight="1"
-                android:text="@string/button_MainActivity"
-                android:typeface="serif" />
-
-            <Button
-                android:id="@+id/buttonPlay1"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginBottom="10dp"
-                android:layout_weight="1"
-                android:text="@string/button_MainActivity"
-                android:typeface="serif" />
+                android:ems="10"
+                android:enabled="false"
+                android:inputType="none" />
         </LinearLayout>
     </ScrollView>
 
@@ -142,6 +134,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="enterNumber"
             android:text="@string/button_0"
             android:typeface="normal" />
 
@@ -150,6 +143,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="enterNumber"
             android:text="@string/button_1"
             android:typeface="normal" />
 
@@ -158,6 +152,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="enterNumber"
             android:text="@string/button_2"
             android:typeface="normal" />
 
@@ -166,6 +161,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="enterNumber"
             android:text="@string/button_3"
             android:typeface="normal" />
 
@@ -174,6 +170,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="enterNumber"
             android:text="@string/button_4"
             android:typeface="normal" />
 
@@ -182,6 +179,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="enterNumber"
             android:text="@string/button_5"
             android:typeface="normal" />
 
@@ -190,6 +188,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="enterNumber"
             android:text="@string/button_6"
             android:typeface="normal" />
 
@@ -198,6 +197,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="enterNumber"
             android:text="@string/button_7"
             android:typeface="normal" />
 
@@ -206,6 +206,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="enterNumber"
             android:text="@string/button_8"
             android:typeface="normal" />
 
@@ -214,6 +215,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="enterNumber"
             android:text="@string/button_9"
             android:typeface="normal" />
     </LinearLayout>
@@ -224,30 +226,27 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/buttonPlayd"
+            android:id="@+id/buttonEnterGuess"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_height="fill_parent"
             android:layout_weight="1.5"
-            android:text="@string/button_MainActivity"
+            android:text="@string/button_enterGuess"
             android:typeface="serif" />
 
         <Button
-            android:id="@+id/buttonPlaytd"
+            android:id="@+id/buttonBackspace"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="@string/button_MainActivity"
+            android:text="@string/button_backspace"
             android:typeface="serif" />
 
         <Button
-            android:id="@+id/buttonPlaygd"
+            android:id="@+id/buttonQuit"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="@string/button_MainActivity"
+            android:text="@string/button_quit"
             android:typeface="serif" />
     </LinearLayout>
 
