@@ -1,4 +1,4 @@
-package logicGame;
+package com.buckley.flummoxed.gameLogic;
 
 import java.util.HashSet;
 import java.util.Random;

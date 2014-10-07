@@ -1,6 +1,4 @@
-package logicGame;
-
-import java.util.Scanner;
+package com.buckley.flummoxed.gameLogic;
 
 /**
  * Created by ejambuc on 12/08/14.

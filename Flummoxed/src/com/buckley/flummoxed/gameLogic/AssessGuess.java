@@ -1,8 +1,4 @@
-package logicGame;
-
-
-import java.util.HashSet;
-import java.util.Set;
+package com.buckley.flummoxed.gameLogic;
 
 /**
  * Created by ejambuc on 08/08/14.
