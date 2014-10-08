@@ -46,4 +46,22 @@ public class AssessGuess {
             }
     }
 
+	/**
+	 * @param i
+	 * @return
+	 */
+	public CharSequence getBalls() {
+		String guessResults="";
+		
+		for(Integer i: status){
+			if(i==2){
+				guessResults+="B";
+			}else if(i==1){
+				guessResults+="W";
+			}
+		}
+		
+		return guessResults;
+	}
+
 }

@@ -47,13 +47,25 @@
                     android:enabled="false"
                     android:inputType="none" />
 
-                <ImageView
+                <!--
+                Changing ImageView to EditText while 
+                figuring out the image balls
+                -->
+
+                <EditText
                     android:id="@+id/showAnswerImage1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <!--
+                    Adding above three lines, commenting out these two
                     android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/ic_launcher"
+                -->
             </LinearLayout>
 
             <LinearLayout
@@ -71,13 +83,21 @@
                     android:enabled="false"
                     android:inputType="none" />
 
-                <ImageView
+                <EditText
                     android:id="@+id/showAnswerImage2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <!--
+                    Adding above three lines, commenting out these two
                     android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/ic_launcher"
+                -->
+
             </LinearLayout>
 
             <LinearLayout
@@ -95,13 +115,20 @@
                     android:enabled="false"
                     android:inputType="none" />
 
-                <ImageView
+                <EditText
                     android:id="@+id/showAnswerImage3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <!--
+                    Adding above three lines, commenting out these two
                     android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/ic_launcher"
+                -->
             </LinearLayout>
 
             <LinearLayout
@@ -119,13 +146,20 @@
                     android:enabled="false"
                     android:inputType="none" />
 
-                <ImageView
+                <EditText
                     android:id="@+id/showAnswerImage4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <!--
+                    Adding above three lines, commenting out these two
                     android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/ic_launcher"
+                -->
             </LinearLayout>
 
             <LinearLayout
@@ -143,13 +177,20 @@
                     android:enabled="false"
                     android:inputType="none" />
 
-                <ImageView
+                <EditText
                     android:id="@+id/showAnswerImage5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <!--
+                    Adding above three lines, commenting out these two
                     android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/ic_launcher"
+                -->
             </LinearLayout>
 
             <LinearLayout
@@ -167,13 +208,20 @@
                     android:enabled="false"
                     android:inputType="none" />
 
-                <ImageView
+                <EditText
                     android:id="@+id/showAnswerImage6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <!--
+                    Adding above three lines, commenting out these two
                     android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/ic_launcher"
+                -->
             </LinearLayout>
 
             <LinearLayout
@@ -191,13 +239,20 @@
                     android:enabled="false"
                     android:inputType="none" />
 
-                <ImageView
+                <EditText
                     android:id="@+id/showAnswerImage7"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <!--
+                    Adding above three lines, commenting out these two
                     android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/ic_launcher"
+                -->
             </LinearLayout>
 
             <LinearLayout
@@ -215,13 +270,20 @@
                     android:enabled="false"
                     android:inputType="none" />
 
-                <ImageView
+                <EditText
                     android:id="@+id/showAnswerImage8"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <!--
+                    Adding above three lines, commenting out these two
                     android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/ic_launcher"
+                -->
             </LinearLayout>
 
             <LinearLayout
@@ -239,13 +301,20 @@
                     android:enabled="false"
                     android:inputType="none" />
 
-                <ImageView
+                <EditText
                     android:id="@+id/showAnswerImage9"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <!--
+                    Adding above three lines, commenting out these two
                     android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/ic_launcher"
+                -->
             </LinearLayout>
 
             <LinearLayout
@@ -263,13 +332,20 @@
                     android:enabled="false"
                     android:inputType="none" />
 
-                <ImageView
+                <EditText
                     android:id="@+id/showAnswerImage10"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:ems="10"
+                    android:enabled="false"
+                    android:inputType="none" />
+
+                <!--
+                    Adding above three lines, commenting out these two
                     android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher" />
+                    android:src="@drawable/ic_launcher"
+                -->
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

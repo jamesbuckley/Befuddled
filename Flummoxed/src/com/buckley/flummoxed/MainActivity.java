@@ -5,8 +5,7 @@ import com.buckley.flummoxed.gameLogic.*;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.*;
-import android.widget.Button;
-import android.widget.TextView;
+import android.widget.*;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -86,46 +85,68 @@ public class MainActivity extends ActionBarActivity {
 	 */
 	private void showResults(String guess) {
 		TextView guessbar;
+		TextView imageView;
 		switch(stats.getLivesLeft()){
 		case(9):
 			guessbar = (TextView) findViewById(R.id.showAnswerText1);
+		imageView = (TextView) findViewById(R.id.showAnswerImage1);
 		guessbar.setText(("#1   ")+guess);
+		imageView.setText(assess.getBalls());
+		
 		break;
 		case(8):
 			guessbar = (TextView) findViewById(R.id.showAnswerText2);
+		imageView = (TextView) findViewById(R.id.showAnswerImage2);
 		guessbar.setText(("#2   ")+guess);
+		imageView.setText(assess.getBalls());
 		break;
 		case(7):
 			guessbar = (TextView) findViewById(R.id.showAnswerText3);
+		imageView = (TextView) findViewById(R.id.showAnswerImage3);
 		guessbar.setText(("#3   ")+guess);
+		imageView.setText(assess.getBalls());
 		break;
 		case(6):
 			guessbar = (TextView) findViewById(R.id.showAnswerText4);
-		guessbar.setText(("#4")+guess);
+		imageView = (TextView) findViewById(R.id.showAnswerImage4);
+		guessbar.setText(("#4   ")+guess);
+		imageView.setText(assess.getBalls());
 		break;
 		case(5):
 			guessbar = (TextView) findViewById(R.id.showAnswerText5);
+		imageView = (TextView) findViewById(R.id.showAnswerImage5);
 		guessbar.setText(("#5   ")+guess);
+		imageView.setText(assess.getBalls());
 		break;
 		case(4):
 			guessbar = (TextView) findViewById(R.id.showAnswerText6);
+		imageView = (TextView) findViewById(R.id.showAnswerImage6);
 		guessbar.setText(("#6   ")+guess);
+		imageView.setText(assess.getBalls());
 		break;
 		case(3):
 			guessbar = (TextView) findViewById(R.id.showAnswerText7);
+		imageView = (TextView) findViewById(R.id.showAnswerImage7);
 		guessbar.setText(("#7   ")+guess);
+		imageView.setText(assess.getBalls());
 		break;
 		case(2):
 			guessbar = (TextView) findViewById(R.id.showAnswerText8);
+		imageView = (TextView) findViewById(R.id.showAnswerImage8);
 		guessbar.setText(("#8   ")+guess);
+		imageView.setText(assess.getBalls());
 		break;
 		case(1):
 			guessbar = (TextView) findViewById(R.id.showAnswerText9);
+		imageView = (TextView) findViewById(R.id.showAnswerImage9);
 		guessbar.setText(("#9   ")+guess);
+		imageView.setText(assess.getBalls());
 		break;
 		case(0):
 			guessbar = (TextView) findViewById(R.id.showAnswerText10);
+		imageView = (TextView) findViewById(R.id.showAnswerImage10);
 		guessbar.setText(("#10   ")+guess);
+		imageView.setText(assess.getBalls());
 		break;
 		}
 	}
