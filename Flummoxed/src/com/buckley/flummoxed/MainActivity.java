@@ -1,16 +1,22 @@
 package com.buckley.flummoxed;
 
+import java.util.Stack;
+
 import com.buckley.flummoxed.gameLogic.*;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.*;
 import android.widget.*;
 
+@TargetApi(Build.VERSION_CODES.GINGERBREAD)
 public class MainActivity extends ActionBarActivity {
 
 	private AssessGuess assess;
 	private GameStats stats;
+	private Stack<Button> disabledButtons = new Stack<Button>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +25,7 @@ public class MainActivity extends ActionBarActivity {
 
 		stats = new GameStats(5,RandomNumberGenerator.getNonrepeatingRandomNumber(largestNumberAllowed(5)));
 		assess = new AssessGuess(stats);
+		setLongClickListeners();
 	}
 
 	@Override
@@ -48,7 +55,10 @@ public class MainActivity extends ActionBarActivity {
 			Button numberButton = (Button) view;
 			String guess = (guessbar.getText().toString())+(numberButton.getText().toString());
 			guessbar.setText(guess);
-			//disableButton();
+			numberButton.setEnabled(false);
+			disabledButtons.add(numberButton);
+			Button zeroButton = (Button) findViewById(R.id.buttonNumber0);
+			zeroButton.setEnabled(true);
 		}
 	}
 
@@ -65,16 +75,24 @@ public class MainActivity extends ActionBarActivity {
 		String guess = guessbar.getText().toString();
 		if(guess.length()>0){
 			guessbar.setText(guess.substring(0, guess.length()-1));
+			Button enableButton = disabledButtons.lastElement();
+			enableButton.setEnabled(true);
+			disabledButtons.remove(enableButton);
+			if(guess.substring(0, guess.length()-1).length()==0){
+				Button zeroButton = (Button) findViewById(R.id.buttonNumber0);
+				zeroButton.setEnabled(false);
+			}			
 		}
 	}
 
 	public void enterGuess(View view){
 		TextView guessbar = (TextView) findViewById(R.id.guessBar);
 		String guess = guessbar.getText().toString();
-		if(stats.newGuess(Integer.parseInt(guess))&&(guess.length()==5)){
+		if((!guess.isEmpty())&& (guess.length()==5)&& stats.newGuess(Integer.parseInt(guess))){
 			assess.evaluateGuess(Integer.parseInt(guess));
 			guessbar.setText("");
 			showResults(guess);
+			resetButtons();
 		}else{
 			//Mark guess as invalid, repeat process
 		}
@@ -83,7 +101,42 @@ public class MainActivity extends ActionBarActivity {
 	/**
 	 * 
 	 */
-	private void showResults(String guess) {
+	private void resetButtons() {
+		while(!disabledButtons.isEmpty()){
+			Button enable = disabledButtons.pop();
+			enable.setEnabled(true);
+		}
+		Button zeroButton = (Button) findViewById(R.id.buttonNumber0);
+		zeroButton.setEnabled(false);
+		
+	}
+	
+	private void setLongClickListeners(){
+		final Button button = (Button) findViewById(R.id.buttonNumber1);
+	     button.setOnLongClickListener(new View.OnLongClickListener() {
+	         public boolean onLongClick(View v) {
+	        	 includeExcludeButton(v);
+	             return true;
+	         }
+	     });
+	}
+	
+	private void includeExcludeButton(View button) {
+		if(button.isEnabled()){
+	 		button.setEnabled(false);
+			button.setBackgroundColor(0xFFFF0000);
+		}else{
+	 		button.setEnabled(true);
+	 		button.setBackgroundResource(android.R.drawable.btn_default);
+		}
+
+		
+	}
+
+	/**
+	 * 
+	 */
+ 	private void showResults(String guess) {
 		TextView guessbar;
 		TextView imageView;
 		switch(stats.getLivesLeft()){
@@ -92,7 +145,7 @@ public class MainActivity extends ActionBarActivity {
 		imageView = (TextView) findViewById(R.id.showAnswerImage1);
 		guessbar.setText(("#1   ")+guess);
 		imageView.setText(assess.getBalls());
-		
+
 		break;
 		case(8):
 			guessbar = (TextView) findViewById(R.id.showAnswerText2);

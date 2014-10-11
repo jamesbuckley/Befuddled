@@ -361,7 +361,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="enterNumber"
+            android:longClickable="true"
             android:text="@string/button_0"
+            android:enabled="false"
             android:typeface="normal" />
 
         <Button
@@ -370,6 +372,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="enterNumber"
+            android:longClickable="true"
             android:text="@string/button_1"
             android:typeface="normal" />
 
@@ -379,6 +382,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="enterNumber"
+            android:longClickable="true"
             android:text="@string/button_2"
             android:typeface="normal" />
 
@@ -388,6 +392,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="enterNumber"
+            android:longClickable="true"
             android:text="@string/button_3"
             android:typeface="normal" />
 
@@ -397,6 +402,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="enterNumber"
+            android:longClickable="true"
             android:text="@string/button_4"
             android:typeface="normal" />
 
@@ -406,6 +412,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="enterNumber"
+            android:longClickable="true"
             android:text="@string/button_5"
             android:typeface="normal" />
 
@@ -415,6 +422,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="enterNumber"
+            android:longClickable="true"
             android:text="@string/button_6"
             android:typeface="normal" />
 
@@ -424,6 +432,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="enterNumber"
+            android:longClickable="true"
             android:text="@string/button_7"
             android:typeface="normal" />
 
@@ -433,6 +442,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="enterNumber"
+            android:longClickable="true"
             android:text="@string/button_8"
             android:typeface="normal" />
 
@@ -442,6 +452,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="enterNumber"
+            android:longClickable="true"
             android:text="@string/button_9"
             android:typeface="normal" />
     </LinearLayout>
