@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#557ECE"
     tools:context="com.buckley.flummoxed.MainActivity" >
 
     <EditText
@@ -16,23 +17,32 @@
         android:layout_weight="1"
         android:ems="10"
         android:enabled="false"
-        android:inputType="none" >
+        android:inputType="none" 
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+        android:gravity="center"
+		android:background="#124CB6">
 
-        <requestFocus />
     </EditText>
 
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4" >
+        android:background="#7EA0DE"
+        android:layout_weight="4" 
+        android:textColor="#FFFFFF"
+        android:textSize="32sp"
+         android:gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical"
+            android:textColor="#FFFFFF" >
 
-            <LinearLayout
+          <LinearLayout
+              	android:id="@+id/answerLine1"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -42,33 +52,53 @@
                     android:id="@+id/showAnswerText1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="1.3"
                     android:ems="10"
                     android:enabled="false"
-                    android:inputType="none" />
+                    android:inputType="none"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp" />    
 
-                <!--
-                Changing ImageView to EditText while 
-                figuring out the image balls
-                -->
-
-                <EditText
-                    android:id="@+id/showAnswerImage1"
+                <ImageView
+                    android:id="@+id/showAnswerImage1a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:inputType="none" />
+                    android:layout_weight="0.2"
+                    android:ems="10" />
 
-                <!--
-                    Adding above three lines, commenting out these two
-                    android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher"
-                -->
+                <ImageView
+                    android:id="@+id/showAnswerImage1b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage1c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage1d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage1e"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/answerLine2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -78,29 +108,55 @@
                     android:id="@+id/showAnswerText2"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="1.3"
                     android:ems="10"
                     android:enabled="false"
-                    android:inputType="none" />
+                    android:inputType="none"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp" />
 
-                <EditText
-                    android:id="@+id/showAnswerImage2"
+
+                <ImageView
+                    android:id="@+id/showAnswerImage2a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:inputType="none" />
+                    android:layout_weight="0.2"
+                    android:ems="10" />
 
-                <!--
-                    Adding above three lines, commenting out these two
-                    android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher"
-                -->
+                <ImageView
+                    android:id="@+id/showAnswerImage2b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage2c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage2d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage2e"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+
 
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/answerLine3"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -110,28 +166,54 @@
                     android:id="@+id/showAnswerText3"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="1.3"
                     android:ems="10"
                     android:enabled="false"
-                    android:inputType="none" />
+                    android:inputType="none"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp" />
 
-                <EditText
-                    android:id="@+id/showAnswerImage3"
+
+                <ImageView
+                    android:id="@+id/showAnswerImage3a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:inputType="none" />
+                    android:layout_weight="0.2"
+                    android:ems="10" />
 
-                <!--
-                    Adding above three lines, commenting out these two
-                    android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher"
-                -->
+                <ImageView
+                    android:id="@+id/showAnswerImage3b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage3c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage3d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage3e"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/answerLine4"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -141,28 +223,54 @@
                     android:id="@+id/showAnswerText4"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="1.3"
                     android:ems="10"
                     android:enabled="false"
-                    android:inputType="none" />
+                    android:inputType="none"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp" />
 
-                <EditText
-                    android:id="@+id/showAnswerImage4"
+
+                <ImageView
+                    android:id="@+id/showAnswerImage4a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:inputType="none" />
+                    android:layout_weight="0.2"
+                    android:ems="10" />
 
-                <!--
-                    Adding above three lines, commenting out these two
-                    android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher"
-                -->
+                <ImageView
+                    android:id="@+id/showAnswerImage4b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage4c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage4d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage4e"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/answerLine5"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -172,28 +280,55 @@
                     android:id="@+id/showAnswerText5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="1.3"
                     android:ems="10"
                     android:enabled="false"
-                    android:inputType="none" />
+                    android:inputType="none"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp" />
 
-                <EditText
-                    android:id="@+id/showAnswerImage5"
+
+                <ImageView
+                    android:id="@+id/showAnswerImage5a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:inputType="none" />
+                    android:layout_weight="0.2"
+                    android:ems="10" />
 
-                <!--
-                    Adding above three lines, commenting out these two
-                    android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher"
-                -->
+                <ImageView
+                    android:id="@+id/showAnswerImage5b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage5c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage5d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+                
+
+                <ImageView
+                    android:id="@+id/showAnswerImage5e"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/answerLine6"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -203,28 +338,54 @@
                     android:id="@+id/showAnswerText6"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="1.3"
                     android:ems="10"
                     android:enabled="false"
-                    android:inputType="none" />
+                    android:inputType="none"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp" />
 
-                <EditText
-                    android:id="@+id/showAnswerImage6"
+
+                <ImageView
+                    android:id="@+id/showAnswerImage6a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:inputType="none" />
+                    android:layout_weight="0.2"
+                    android:ems="10" />
 
-                <!--
-                    Adding above three lines, commenting out these two
-                    android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher"
-                -->
+                <ImageView
+                    android:id="@+id/showAnswerImage6b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage6c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage6d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage6e"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/answerLine7"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -234,28 +395,54 @@
                     android:id="@+id/showAnswerText7"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="1.3"
                     android:ems="10"
                     android:enabled="false"
-                    android:inputType="none" />
+                    android:inputType="none" 
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp"/>
 
-                <EditText
-                    android:id="@+id/showAnswerImage7"
+
+                <ImageView
+                    android:id="@+id/showAnswerImage7a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:inputType="none" />
+                    android:layout_weight="0.2"
+                    android:ems="10" />
 
-                <!--
-                    Adding above three lines, commenting out these two
-                    android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher"
-                -->
+                <ImageView
+                    android:id="@+id/showAnswerImage7b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage7c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage7d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage7e"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/answerLine8"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -265,28 +452,54 @@
                     android:id="@+id/showAnswerText8"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="1.3"
                     android:ems="10"
                     android:enabled="false"
-                    android:inputType="none" />
+                    android:inputType="none"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp" />
 
-                <EditText
-                    android:id="@+id/showAnswerImage8"
+
+                <ImageView
+                    android:id="@+id/showAnswerImage8a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:inputType="none" />
+                    android:layout_weight="0.2"
+                    android:ems="10" />
 
-                <!--
-                    Adding above three lines, commenting out these two
-                    android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher"
-                -->
+                <ImageView
+                    android:id="@+id/showAnswerImage8b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage8c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage8d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage8e"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/answerLine9"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -296,28 +509,52 @@
                     android:id="@+id/showAnswerText9"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="1.3"
                     android:ems="10"
                     android:enabled="false"
-                    android:inputType="none" />
+                    android:inputType="none" 
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp"/>
 
-                <EditText
-                    android:id="@+id/showAnswerImage9"
+                <ImageView
+                    android:id="@+id/showAnswerImage9a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:inputType="none" />
+                    android:layout_weight="0.2"
+                    android:ems="10" />
 
-                <!--
-                    Adding above three lines, commenting out these two
-                    android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher"
-                -->
+                <ImageView
+                    android:id="@+id/showAnswerImage9b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage9c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage9d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage9e"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/answerLine10"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -327,25 +564,50 @@
                     android:id="@+id/showAnswerText10"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight="1.3"
                     android:ems="10"
                     android:enabled="false"
-                    android:inputType="none" />
+                    android:inputType="none"
+                    android:textColor="#FFFFFF"
+                    android:textSize="32sp" />
 
-                <EditText
-                    android:id="@+id/showAnswerImage10"
+              
+                <ImageView
+                    android:id="@+id/showAnswerImage10a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:enabled="false"
-                    android:inputType="none" />
+                    android:layout_weight="0.2"
+                    android:ems="10" />
 
-                <!--
-                    Adding above three lines, commenting out these two
-                    android:contentDescription="@string/FlummoxedLogo"
-                    android:src="@drawable/ic_launcher"
-                -->
+                <ImageView
+                    android:id="@+id/showAnswerImage10b"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage10c"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage10d"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+                <ImageView
+                    android:id="@+id/showAnswerImage10e"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.2"
+                    android:ems="10"/>
+
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -353,108 +615,140 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:background="#7EA0DE"
+        >
 
         <Button
             android:id="@+id/buttonNumber0"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="enterNumber"
-            android:longClickable="true"
-            android:text="@string/button_0"
             android:enabled="false"
-            android:typeface="normal" />
+            android:longClickable="true"
+            android:onClick="enterNumber"
+            android:text="@string/button_0"
+            android:typeface="normal"
+            android:background="#A7C0EF"
+            android:textColor="#FFFFFF"
+            />
 
         <Button
             android:id="@+id/buttonNumber1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="enterNumber"
             android:longClickable="true"
+            android:onClick="enterNumber"
             android:text="@string/button_1"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:background="#A7C0EF"
+            android:textColor="#FFFFFF"
+            />
 
         <Button
             android:id="@+id/buttonNumber2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="enterNumber"
             android:longClickable="true"
+            android:onClick="enterNumber"
             android:text="@string/button_2"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:background="#A7C0EF"
+            android:textColor="#FFFFFF"
+             />
 
         <Button
             android:id="@+id/buttonNumber3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="enterNumber"
             android:longClickable="true"
+            android:onClick="enterNumber"
             android:text="@string/button_3"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:background="#A7C0EF"
+            android:textColor="#FFFFFF"
+             />
 
         <Button
             android:id="@+id/buttonNumber4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="enterNumber"
             android:longClickable="true"
+            android:onClick="enterNumber"
             android:text="@string/button_4"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:background="#A7C0EF"
+            android:textColor="#FFFFFF"
+             />
 
         <Button
             android:id="@+id/buttonNumber5"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="enterNumber"
             android:longClickable="true"
+            android:onClick="enterNumber"
             android:text="@string/button_5"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:background="#A7C0EF"
+            android:textColor="#FFFFFF"
+            />
 
         <Button
             android:id="@+id/buttonNumber6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="enterNumber"
             android:longClickable="true"
+            android:onClick="enterNumber"
             android:text="@string/button_6"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:background="#A7C0EF"
+            android:textColor="#FFFFFF"
+             />
 
         <Button
             android:id="@+id/buttonNumber7"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="enterNumber"
             android:longClickable="true"
+            android:onClick="enterNumber"
             android:text="@string/button_7"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:background="#A7C0EF" 
+            android:textColor="#FFFFFF"
+            />
 
         <Button
             android:id="@+id/buttonNumber8"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="enterNumber"
             android:longClickable="true"
+            android:onClick="enterNumber"
             android:text="@string/button_8"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:background="#A7C0EF"
+            android:textColor="#FFFFFF"
+             />
 
         <Button
             android:id="@+id/buttonNumber9"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="enterNumber"
             android:longClickable="true"
+            android:onClick="enterNumber"
             android:text="@string/button_9"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:background="#A7C0EF"
+            android:textColor="#FFFFFF"
+             />
     </LinearLayout>
 
     <LinearLayout
@@ -469,7 +763,10 @@
             android:layout_weight="1.5"
             android:onClick="enterGuess"
             android:text="@string/button_enterGuess"
-            android:typeface="serif" />
+            android:typeface="serif"
+            android:background="#FFC558"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp" />
 
         <Button
             android:id="@+id/buttonBackspace"
@@ -478,7 +775,10 @@
             android:layout_weight="1"
             android:onClick="backspace"
             android:text="@string/button_backspace"
-            android:typeface="serif" />
+            android:typeface="serif"
+            android:background="#FFC558"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp" />
 
         <Button
             android:id="@+id/buttonQuit"
@@ -486,7 +786,10 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:text="@string/button_quit"
-            android:typeface="serif" />
+            android:typeface="serif"
+            android:background="#FFC558"
+            android:textColor="#FFFFFF" 
+            android:textSize="22sp"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -1,10 +1,14 @@
 package com.buckley.flummoxed;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Stack;
 
 import com.buckley.flummoxed.gameLogic.*;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -12,7 +16,7 @@ import android.view.*;
 import android.widget.*;
 
 @TargetApi(Build.VERSION_CODES.GINGERBREAD)
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 
 	private AssessGuess assess;
 	private GameStats stats;
@@ -22,6 +26,7 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		getWindow().getDecorView().setBackgroundColor(Color.parseColor("#F19B28"));
 
 		stats = new GameStats(5,RandomNumberGenerator.getNonrepeatingRandomNumber(largestNumberAllowed(5)));
 		assess = new AssessGuess(stats);
@@ -51,7 +56,7 @@ public class MainActivity extends ActionBarActivity {
 
 		TextView guessbar = (TextView) findViewById(R.id.guessBar);
 
-		if(canAcceptNumber(guessbar.getText().toString())){
+		if(canAcceptNumber(guessbar.getText().toString()) && view.isClickable()){
 			Button numberButton = (Button) view;
 			String guess = (guessbar.getText().toString())+(numberButton.getText().toString());
 			guessbar.setText(guess);
@@ -112,21 +117,34 @@ public class MainActivity extends ActionBarActivity {
 	}
 	
 	private void setLongClickListeners(){
-		final Button button = (Button) findViewById(R.id.buttonNumber1);
-	     button.setOnLongClickListener(new View.OnLongClickListener() {
-	         public boolean onLongClick(View v) {
-	        	 includeExcludeButton(v);
-	             return true;
-	         }
-	     });
+		 ArrayList<Button> buttons = new ArrayList<Button>();
+		 buttons.add((Button) findViewById(R.id.buttonNumber0));
+		 buttons.add((Button)  findViewById(R.id.buttonNumber1));
+		 buttons.add((Button)  findViewById(R.id.buttonNumber2));
+		 buttons.add((Button)  findViewById(R.id.buttonNumber3));
+		 buttons.add((Button)  findViewById(R.id.buttonNumber4));
+		 buttons.add((Button)  findViewById(R.id.buttonNumber5));
+		 buttons.add((Button)  findViewById(R.id.buttonNumber6));
+		 buttons.add((Button)  findViewById(R.id.buttonNumber7));
+		 buttons.add((Button)  findViewById(R.id.buttonNumber8));
+		 buttons.add((Button)  findViewById(R.id.buttonNumber9));
+		 
+		 for (Button button: buttons){
+		     button.setOnLongClickListener(new View.OnLongClickListener() {
+		         public boolean onLongClick(View v) {
+		        	 includeExcludeButton(v);
+		             return true;
+		         }
+		     });
+		 }
 	}
 	
 	private void includeExcludeButton(View button) {
-		if(button.isEnabled()){
-	 		button.setEnabled(false);
+		if(button.isClickable()){
+	 		button.setClickable(false);
 			button.setBackgroundColor(0xFFFF0000);
 		}else{
-	 		button.setEnabled(true);
+	 		button.setClickable(true);
 	 		button.setBackgroundResource(android.R.drawable.btn_default);
 		}
 
@@ -138,70 +156,78 @@ public class MainActivity extends ActionBarActivity {
 	 */
  	private void showResults(String guess) {
 		TextView guessbar;
-		TextView imageView;
+		ImageView imageView;
 		switch(stats.getLivesLeft()){
 		case(9):
 			guessbar = (TextView) findViewById(R.id.showAnswerText1);
-		imageView = (TextView) findViewById(R.id.showAnswerImage1);
 		guessbar.setText(("#1   ")+guess);
-		imageView.setText(assess.getBalls());
-
+		setBallImages(assess.getBalls(), (LinearLayout) findViewById(R.id.answerLine1));
 		break;
 		case(8):
 			guessbar = (TextView) findViewById(R.id.showAnswerText2);
-		imageView = (TextView) findViewById(R.id.showAnswerImage2);
 		guessbar.setText(("#2   ")+guess);
-		imageView.setText(assess.getBalls());
+		setBallImages(assess.getBalls(), (LinearLayout) findViewById(R.id.answerLine2));
 		break;
 		case(7):
 			guessbar = (TextView) findViewById(R.id.showAnswerText3);
-		imageView = (TextView) findViewById(R.id.showAnswerImage3);
 		guessbar.setText(("#3   ")+guess);
-		imageView.setText(assess.getBalls());
+		setBallImages(assess.getBalls(), (LinearLayout) findViewById(R.id.answerLine3));
 		break;
 		case(6):
 			guessbar = (TextView) findViewById(R.id.showAnswerText4);
-		imageView = (TextView) findViewById(R.id.showAnswerImage4);
 		guessbar.setText(("#4   ")+guess);
-		imageView.setText(assess.getBalls());
+		setBallImages(assess.getBalls(), (LinearLayout) findViewById(R.id.answerLine4));
 		break;
 		case(5):
 			guessbar = (TextView) findViewById(R.id.showAnswerText5);
-		imageView = (TextView) findViewById(R.id.showAnswerImage5);
 		guessbar.setText(("#5   ")+guess);
-		imageView.setText(assess.getBalls());
+		setBallImages(assess.getBalls(), (LinearLayout) findViewById(R.id.answerLine5));
 		break;
 		case(4):
 			guessbar = (TextView) findViewById(R.id.showAnswerText6);
-		imageView = (TextView) findViewById(R.id.showAnswerImage6);
 		guessbar.setText(("#6   ")+guess);
-		imageView.setText(assess.getBalls());
+		setBallImages(assess.getBalls(), (LinearLayout) findViewById(R.id.answerLine6));
 		break;
 		case(3):
 			guessbar = (TextView) findViewById(R.id.showAnswerText7);
-		imageView = (TextView) findViewById(R.id.showAnswerImage7);
 		guessbar.setText(("#7   ")+guess);
-		imageView.setText(assess.getBalls());
+		setBallImages(assess.getBalls(), (LinearLayout) findViewById(R.id.answerLine7));
 		break;
 		case(2):
 			guessbar = (TextView) findViewById(R.id.showAnswerText8);
-		imageView = (TextView) findViewById(R.id.showAnswerImage8);
 		guessbar.setText(("#8   ")+guess);
-		imageView.setText(assess.getBalls());
+		setBallImages(assess.getBalls(), (LinearLayout) findViewById(R.id.answerLine8));
 		break;
 		case(1):
 			guessbar = (TextView) findViewById(R.id.showAnswerText9);
-		imageView = (TextView) findViewById(R.id.showAnswerImage9);
 		guessbar.setText(("#9   ")+guess);
-		imageView.setText(assess.getBalls());
+		setBallImages(assess.getBalls(), (LinearLayout) findViewById(R.id.answerLine9));
 		break;
 		case(0):
 			guessbar = (TextView) findViewById(R.id.showAnswerText10);
-		imageView = (TextView) findViewById(R.id.showAnswerImage10);
 		guessbar.setText(("#10   ")+guess);
-		imageView.setText(assess.getBalls());
+		setBallImages(assess.getBalls(), (LinearLayout) findViewById(R.id.answerLine10));
 		break;
 		}
+	}
+
+	/**
+	 * @param balls
+	 */
+	private void setBallImages(CharSequence balls, LinearLayout answerRow) {
+		ImageView ballImage;
+		
+		for(int i=1; i<balls.length()+1;i++){
+			ballImage = (ImageView) answerRow.getChildAt(i);
+			if(balls.charAt(i-1)=='W'){
+				ballImage.setImageResource(R.drawable.orange_ball);
+			}
+			else if(balls.charAt(i-1)=='B'){
+				ballImage.setImageResource(R.drawable.green_ball);
+			}
+		}
+		
+		
 	}
 
 	private static int largestNumberAllowed(int requestedNumberOfDigits){
