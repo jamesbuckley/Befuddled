@@ -8,6 +8,7 @@ import com.buckley.flummoxed.gameLogic.*;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,15 +23,28 @@ public class MainActivity extends Activity {
 	private GameStats stats;
 	private Stack<Button> disabledButtons = new Stack<Button>();
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		getWindow().getDecorView().setBackgroundColor(Color.parseColor("#F19B28"));
-
 		stats = new GameStats(5,RandomNumberGenerator.getNonrepeatingRandomNumber(largestNumberAllowed(5)));
 		assess = new AssessGuess(stats);
+		isTutorial();
 		setLongClickListeners();
+	}
+
+	/**
+	 * 
+	 */
+	private void isTutorial() {
+		Intent intent = getIntent();
+		String isTutorialExtra = intent.getStringExtra("com.buckley.flummoxed.Tutorial");
+		if(isTutorialExtra!=null){
+			stats.setTutorial(true);
+		}
+		
 	}
 
 	@Override
@@ -98,6 +112,16 @@ public class MainActivity extends Activity {
 			guessbar.setText("");
 			showResults(guess);
 			resetButtons();
+			if(assess.isGameWon()){
+				Intent intent = new Intent(this, VictoryActivity.class);
+				try {
+					Thread.sleep(1500);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				startActivity(intent);
+			}
 		}else{
 			//Mark guess as invalid, repeat process
 		}
@@ -156,7 +180,6 @@ public class MainActivity extends Activity {
 	 */
  	private void showResults(String guess) {
 		TextView guessbar;
-		ImageView imageView;
 		switch(stats.getLivesLeft()){
 		case(9):
 			guessbar = (TextView) findViewById(R.id.showAnswerText1);
@@ -219,14 +242,16 @@ public class MainActivity extends Activity {
 		
 		for(int i=1; i<balls.length()+1;i++){
 			ballImage = (ImageView) answerRow.getChildAt(i);
-			if(balls.charAt(i-1)=='W'){
+			if(balls.charAt(i-1)=='O'){
 				ballImage.setImageResource(R.drawable.orange_ball);
 			}
-			else if(balls.charAt(i-1)=='B'){
+			else if(balls.charAt(i-1)=='G'){
 				ballImage.setImageResource(R.drawable.green_ball);
 			}
+			else if(balls.charAt(i-1)=='R'){
+				ballImage.setImageResource(R.drawable.red_ball);
+			}
 		}
-		
 		
 	}
 

@@ -14,8 +14,23 @@ public class GameStats {
     private boolean gameOver;
     private int answer;
     private int numberOfDigits;
+    private boolean isTutorial;
 
-    public GameStats(int numberOfDigits, int answer){
+    /**
+	 * @return the isTutorial
+	 */
+	public boolean isTutorial() {
+		return isTutorial;
+	}
+
+	/**
+	 * @param isTutorial the isTutorial to set
+	 */
+	public void setTutorial(boolean isTutorial) {
+		this.isTutorial = isTutorial;
+	}
+
+	public GameStats(int numberOfDigits, int answer){
         this.answer=answer;
         this.numberOfDigits=numberOfDigits;
     }

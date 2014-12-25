@@ -1,5 +1,7 @@
 package com.buckley.flummoxed.gameLogic;
 
+import java.util.Arrays;
+
 /**
  * Created by ejambuc on 08/08/14.
  */
@@ -20,9 +22,17 @@ public class AssessGuess {
         String stringGuess = Integer.toString(guess);
         assessBlackBalls(stringGuess);
         assessWhiteBalls(stringGuess);
+        isGameWon();
         return status;
     }
 
+    public boolean isGameWon(){
+    	int[] winning = {2,2,2,2,2};
+    	if(Arrays.equals(status, winning)){
+    		return true;
+    	}
+		return false;
+    }
 
     private void assessBlackBalls(String guess){
         for(int i=0;i<stats.getNumberOfDigits();i++){
@@ -55,13 +65,15 @@ public class AssessGuess {
 		
 		for(Integer i: status){
 			if(i==2){
-				guessResults+="B";
+				guessResults+="G";
 			}else if(i==1){
-				guessResults+="W";
+				guessResults+="O";
+			}else if(stats.isTutorial()){
+				guessResults+="R";
 			}
 		}
 		
 		return guessResults;
 	}
-
+		
 }

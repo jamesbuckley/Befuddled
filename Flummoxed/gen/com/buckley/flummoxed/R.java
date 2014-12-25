@@ -1081,6 +1081,7 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020058;
         public static final int orange_ball=0x7f020059;
         public static final int red_ball=0x7f02005a;
+        public static final int victory_placeholder=0x7f02005b;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1094,7 +1095,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050095;
+        public static final int action_settings=0x7f050096;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int answerLine1=0x7f05003e;
@@ -1147,6 +1148,7 @@ containing a value of this type.
         public static final int never=0x7f050009;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
+        public static final int playAgain=0x7f050095;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
@@ -1286,11 +1288,13 @@ containing a value of this type.
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_main=0x7f030018;
         public static final int activity_title=0x7f030019;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
+        public static final int activity_victory=0x7f03001a;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001b;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
         public static final int title=0x7f0c0001;
+        public static final int victory=0x7f0c0002;
     }
     public static final class string {
         public static final int FlummoxedLogo=0x7f0a0021;
@@ -1334,7 +1338,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
-        public static final int action_settings=0x7f0a000f;
+        public static final int action_settings=0x7f0a000e;
         public static final int app_name=0x7f0a000d;
         public static final int button_0=0x7f0a0014;
         public static final int button_1=0x7f0a0015;
@@ -1348,14 +1352,20 @@ containing a value of this type.
         public static final int button_9=0x7f0a001d;
         /**  Button Strings 
          */
-        public static final int button_MainActivity=0x7f0a0011;
-        public static final int button_SettingsActivity=0x7f0a0012;
-        public static final int button_TutorialActivity=0x7f0a0013;
+        public static final int button_MainActivity=0x7f0a0010;
+        public static final int button_PlayAgain=0x7f0a0013;
+        public static final int button_SettingsActivity=0x7f0a0011;
+        public static final int button_TutorialActivity=0x7f0a0012;
         public static final int button_backspace=0x7f0a001f;
         public static final int button_enterGuess=0x7f0a001e;
         public static final int button_quit=0x7f0a0020;
-        public static final int hello_world=0x7f0a000e;
-        public static final int title_activity_main=0x7f0a0010;
+        public static final int image_victory=0x7f0a0024;
+        /**  Label Strings 
+         */
+        public static final int label_guess=0x7f0a0023;
+        public static final int title_activity_main=0x7f0a000f;
+        public static final int title_activity_victory=0x7f0a0022;
+        public static final int victory_label=0x7f0a0025;
     }
     public static final class style {
         /** 

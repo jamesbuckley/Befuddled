@@ -12,10 +12,12 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:screenOrientation="portrait"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".TitleActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,12 +27,17 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:parentActivityName=".TitleActivity" 
-            android:windowSoftInputMode="stateHidden"
-            android:theme="@style/MyCustomTheme">
+            android:parentActivityName=".TitleActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyCustomTheme"
+            android:windowSoftInputMode="stateHidden" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.buckley.flummoxed.TitleActivity" />
+        </activity>
+        <activity
+            android:name=".VictoryActivity"
+            android:label="@string/title_activity_victory" >
         </activity>
     </application>
 

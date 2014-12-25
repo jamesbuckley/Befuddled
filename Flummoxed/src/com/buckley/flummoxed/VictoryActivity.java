@@ -5,18 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
 
-public class TitleActivity extends ActionBarActivity {
+public class VictoryActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_title);
+		setContentView(R.layout.activity_victory);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.title, menu);
+		getMenuInflater().inflate(R.menu.victory, menu);
 		return true;
 	}
 
@@ -32,15 +32,12 @@ public class TitleActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void playGame(View view){
+	public void playAgain(View view){
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
-		
 	}
 	
-	public void playTutorial(View view){
-		Intent intent = new Intent(this, MainActivity.class);
-		intent.putExtra("com.buckley.flummoxed.Tutorial", "true");
-		startActivity(intent);
+	public void quit(){
+		//System.exit(0);
 	}
 }
