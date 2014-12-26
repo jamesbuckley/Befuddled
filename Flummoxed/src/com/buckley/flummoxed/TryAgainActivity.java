@@ -1,22 +1,25 @@
 package com.buckley.flummoxed;
 
-import android.app.Activity;
+import android.support.v7.app.ActionBarActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
+import android.widget.TextView;
 
-public class TitleActivity extends Activity {
+public class TryAgainActivity extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_title);
+		setContentView(R.layout.activity_try_again);
+		TextView textAnswer = (TextView) findViewById(R.id.losing_answer);
+		textAnswer.setText("Sorry! The Answer was " + getAnswer());
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.title, menu);
+		getMenuInflater().inflate(R.menu.try_again, menu);
 		return true;
 	}
 
@@ -29,15 +32,14 @@ public class TitleActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void playGame(View view){
+	public void playAgain(View view){
 		Intent intent = new Intent(this, MainActivity.class);
 		startActivity(intent);
-		
 	}
 	
-	public void playTutorial(View view){
-		Intent intent = new Intent(this, MainActivity.class);
-		intent.putExtra("com.buckley.flummoxed.Tutorial", "true");
-		startActivity(intent);
+	private String getAnswer(){
+		Intent intent = getIntent();
+		String answer = intent.getStringExtra("com.buckley.flummoxed.LosingAnswer");
+		return answer;
 	}
 }

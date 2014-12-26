@@ -13,20 +13,19 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" 
-        >
+        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="6"
-            android:text="@string/label_guess" 
+            android:background="#124CB6"
             android:enabled="false"
             android:gravity="center"
             android:inputType="none"
+            android:text="@string/label_guess"
             android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:background="#124CB6"/>
+            android:textSize="22sp" />
 
         <EditText
             android:id="@+id/guessBar"
@@ -613,7 +612,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#A7C0EF"
-            android:enabled="false"
             android:longClickable="true"
             android:onClick="enterNumber"
             android:text="@string/button_0"

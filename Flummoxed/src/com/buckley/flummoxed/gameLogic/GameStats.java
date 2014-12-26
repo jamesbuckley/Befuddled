@@ -65,7 +65,7 @@ public class GameStats {
     private void decrementLives(){
         livesLeft--;
         if(livesLeft==0){
-            setGameOver();
+            gameOver=true;
         }
     }
 
@@ -73,6 +73,5 @@ public class GameStats {
         return livesLeft;
     }
     public boolean isGameOver(){return gameOver;}
-    private void setGameOver(){gameOver=true;}
     public int getNumberOfDigits(){return numberOfDigits;}
 }

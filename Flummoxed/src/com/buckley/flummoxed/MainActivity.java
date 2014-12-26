@@ -1,6 +1,5 @@
 package com.buckley.flummoxed;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -12,7 +11,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.*;
 import android.widget.*;
 
@@ -22,17 +20,30 @@ public class MainActivity extends Activity {
 	private AssessGuess assess;
 	private GameStats stats;
 	private Stack<Button> disabledButtons = new Stack<Button>();
+	private ArrayList<Button> excludedButtons = new ArrayList<Button>();
 
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		getWindow().getDecorView().setBackgroundColor(Color.parseColor("#F19B28"));
 		stats = new GameStats(5,RandomNumberGenerator.getNonrepeatingRandomNumber(largestNumberAllowed(5)));
 		assess = new AssessGuess(stats);
 		isTutorial();
 		setLongClickListeners();
+		setZeroButtonStartState();
+	}
+	
+	private void setZeroButtonStartState(){
+		Button zero = (Button) findViewById(R.id.buttonNumber0);
+		zero.setClickable(false);
+		zero.setBackgroundColor(Color.parseColor("#13439C"));		
+	}
+	
+	private void enableZeroButton(){
+		Button zero = (Button) findViewById(R.id.buttonNumber0);
+		zero.setClickable(true);
+		zero.setBackgroundColor(Color.parseColor("#A7C0EF"));
 	}
 
 	/**
@@ -59,10 +70,7 @@ public class MainActivity extends Activity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
+
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -74,11 +82,17 @@ public class MainActivity extends Activity {
 			Button numberButton = (Button) view;
 			String guess = (guessbar.getText().toString())+(numberButton.getText().toString());
 			guessbar.setText(guess);
-			numberButton.setEnabled(false);
-			disabledButtons.add(numberButton);
-			Button zeroButton = (Button) findViewById(R.id.buttonNumber0);
-			zeroButton.setEnabled(true);
+			if(disabledButtons.isEmpty()){
+				enableZeroButton();
+			}
+			disableNumber(numberButton);
 		}
+	}
+	
+	private void disableNumber(Button numberButton){
+		numberButton.setEnabled(false);
+		numberButton.setBackgroundColor(Color.parseColor("#13439C"));
+		disabledButtons.add(numberButton);
 	}
 
 	/**
@@ -94,14 +108,17 @@ public class MainActivity extends Activity {
 		String guess = guessbar.getText().toString();
 		if(guess.length()>0){
 			guessbar.setText(guess.substring(0, guess.length()-1));
-			Button enableButton = disabledButtons.lastElement();
-			enableButton.setEnabled(true);
-			disabledButtons.remove(enableButton);
-			if(guess.substring(0, guess.length()-1).length()==0){
-				Button zeroButton = (Button) findViewById(R.id.buttonNumber0);
-				zeroButton.setEnabled(false);
-			}			
+			enableButton(disabledButtons.lastElement());		
 		}
+		if(disabledButtons.isEmpty()){
+			setZeroButtonStartState();
+		}
+	}
+	
+	private void enableButton(Button enableButton){
+		enableButton.setEnabled(true);
+		disabledButtons.remove(enableButton);
+		enableButton.setBackgroundColor(Color.parseColor("#A7C0EF"));
 	}
 
 	public void enterGuess(View view){
@@ -122,6 +139,11 @@ public class MainActivity extends Activity {
 				}
 				startActivity(intent);
 			}
+			else if(stats.isGameOver()){
+				Intent intent = new Intent(this, TryAgainActivity.class);
+				intent.putExtra("com.buckley.flummoxed.LosingAnswer", stats.getAnswer());
+				startActivity(intent);
+			}
 		}else{
 			//Mark guess as invalid, repeat process
 		}
@@ -133,10 +155,9 @@ public class MainActivity extends Activity {
 	private void resetButtons() {
 		while(!disabledButtons.isEmpty()){
 			Button enable = disabledButtons.pop();
-			enable.setEnabled(true);
+			enableButton(enable);
 		}
-		Button zeroButton = (Button) findViewById(R.id.buttonNumber0);
-		zeroButton.setEnabled(false);
+		setZeroButtonStartState();
 		
 	}
 	
@@ -164,15 +185,15 @@ public class MainActivity extends Activity {
 	}
 	
 	private void includeExcludeButton(View button) {
-		if(button.isClickable()){
-	 		button.setClickable(false);
-			button.setBackgroundColor(0xFFFF0000);
+		if(excludedButtons.contains(button)){
+			button.setClickable(true);
+			button.setBackgroundColor(Color.parseColor("#A7C0EF"));
+			excludedButtons.remove(button);
 		}else{
-	 		button.setClickable(true);
-	 		button.setBackgroundResource(android.R.drawable.btn_default);
-		}
-
-		
+	 		button.setClickable(false);
+	 		excludedButtons.add((Button) button);
+	 		button.setBackgroundColor(Color.parseColor("#EB9B06"));
+		}	
 	}
 
 	/**

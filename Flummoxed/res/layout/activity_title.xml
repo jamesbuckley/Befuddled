@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingBottom="55dp"
+    android:background="#557ECE"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -26,6 +27,9 @@
         android:layout_weight="1"
         android:text="@string/button_MainActivity"
         android:onClick="playGame"
+        android:background="#FFC558"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp" 
         android:typeface="serif" />
 
     <Button
@@ -36,6 +40,9 @@
         android:layout_weight="1"
         android:text="@string/button_TutorialActivity"
         android:onClick="playTutorial"
+        android:background="#FFC558"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp" 
         android:typeface="serif" />
 
     <Button
@@ -44,6 +51,9 @@
         android:layout_height="0dp"
         android:layout_marginBottom="10dp"
         android:layout_weight="1"
+        android:background="#FFC558"
+        android:textColor="#FFFFFF"
+        android:textSize="32sp" 
         android:text="@string/button_SettingsActivity"
         android:typeface="serif" />
 

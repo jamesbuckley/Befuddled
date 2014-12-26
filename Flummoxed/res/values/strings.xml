@@ -25,9 +25,12 @@
     <string name="button_quit">Quit</string>
     <string name="FlummoxedLogo">Flummoxed Logo</string>
     <string name="title_activity_victory">Winner!</string>
-    
+
     <!-- Label Strings -->
     <string name="label_guess">Guess</string>
-	<string name="image_victory">Victory Image</string>
-	<string name="victory_label">You Win</string>
+    <string name="image_victory">Victory Image</string>
+    <string name="victory_label">You Win</string>
+    <string name="title_activity_try_again">TryAgainActivity</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>
