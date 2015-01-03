@@ -10,7 +10,7 @@ public class GameStats {
 
     private int livesLeft = 10;
     private String name="Guest";
-    private Set previousGuesses = new HashSet();
+    private Set<Integer> previousGuesses = new HashSet<Integer>();
     private boolean gameOver;
     private int answer;
     private int numberOfDigits;

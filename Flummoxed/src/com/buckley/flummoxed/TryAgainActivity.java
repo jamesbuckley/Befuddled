@@ -1,12 +1,12 @@
 package com.buckley.flummoxed;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
 import android.widget.TextView;
 
-public class TryAgainActivity extends ActionBarActivity {
+public class TryAgainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class TryAgainActivity extends ActionBarActivity {
 	}
 	
 	public void playAgain(View view){
-		Intent intent = new Intent(this, MainActivity.class);
+		Intent intent = new Intent(this, TitleActivity.class);
 		startActivity(intent);
 	}
 	

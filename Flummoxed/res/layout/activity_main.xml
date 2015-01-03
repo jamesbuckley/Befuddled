@@ -81,6 +81,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
+                    android:contentDescription="@string/blank_string"
                     android:ems="10" />
 
                 <ImageView
@@ -88,18 +89,21 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
+                    android:contentDescription="@string/blank_string"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage1c"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage1d"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -107,6 +111,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage1e"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -135,11 +140,13 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
+                    android:contentDescription="@string/blank_string"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage2b"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -147,6 +154,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage2c"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -155,6 +163,7 @@
                     android:id="@+id/showAnswerImage2d"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
@@ -162,6 +171,7 @@
                     android:id="@+id/showAnswerImage2e"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
             </LinearLayout>
@@ -188,6 +198,7 @@
                     android:id="@+id/showAnswerImage3a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
@@ -195,6 +206,7 @@
                     android:id="@+id/showAnswerImage3b"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
@@ -203,12 +215,14 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
+                    android:contentDescription="@string/blank_string"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage3d"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
@@ -216,6 +230,7 @@
                     android:id="@+id/showAnswerImage3e"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
             </LinearLayout>
@@ -243,11 +258,13 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
+                    android:contentDescription="@string/blank_string"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage4b"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -255,6 +272,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage4c"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -262,12 +280,14 @@
                 <ImageView
                     android:id="@+id/showAnswerImage4d"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage4e"
+                    android:contentDescription="@string/blank_string"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -295,6 +315,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage5a"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -302,6 +323,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage5b"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -310,12 +332,14 @@
                     android:id="@+id/showAnswerImage5c"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage5d"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -323,6 +347,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage5e"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -351,18 +376,21 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
+                    android:contentDescription="@string/blank_string"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage6b"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage6c"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -370,6 +398,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage6d"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -377,6 +406,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage6e"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -403,6 +433,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage7a"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -410,6 +441,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage7b"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -418,6 +450,7 @@
                     android:id="@+id/showAnswerImage7c"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
@@ -425,12 +458,14 @@
                     android:id="@+id/showAnswerImage7d"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage7e"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -456,6 +491,7 @@
 
                 <ImageView
                     android:id="@+id/showAnswerImage8a"
+                    android:contentDescription="@string/blank_string"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -463,6 +499,7 @@
 
                 <ImageView
                     android:id="@+id/showAnswerImage8b"
+                    android:contentDescription="@string/blank_string"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -472,12 +509,14 @@
                     android:id="@+id/showAnswerImage8c"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage8d"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -485,6 +524,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage8e"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -511,6 +551,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage9a"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -518,6 +559,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage9b"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -525,6 +567,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage9c"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -532,6 +575,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage9d"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -539,6 +583,7 @@
                 <ImageView
                     android:id="@+id/showAnswerImage9e"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -566,12 +611,14 @@
                     android:id="@+id/showAnswerImage10a"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/blank_string"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage10b"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
@@ -579,12 +626,14 @@
                 <ImageView
                     android:id="@+id/showAnswerImage10c"
                     android:layout_width="0dp"
+                    android:contentDescription="@string/blank_string"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
                     android:ems="10" />
 
                 <ImageView
                     android:id="@+id/showAnswerImage10d"
+                    android:contentDescription="@string/blank_string"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
@@ -595,6 +644,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"
+                    android:contentDescription="@string/blank_string"
                     android:ems="10" />
             </LinearLayout>
         </LinearLayout>
@@ -772,6 +822,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="1"
             android:background="#FFC558"
+            android:onClick="quitGame"
             android:text="@string/button_quit"
             android:textColor="#FFFFFF"
             android:textSize="22sp"

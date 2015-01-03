@@ -5,18 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
 
-public class TitleActivity extends Activity {
+public class HardModeTutorial extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_title);
+		setContentView(R.layout.activity_hard_mode_tutorial);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.title, menu);
+		getMenuInflater().inflate(R.menu.hard_mode_tutorial, menu);
 		return true;
 	}
 
@@ -25,24 +25,15 @@ public class TitleActivity extends Activity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void playNormalMode(View view){
-		Intent intent = new Intent(this, MainActivity.class);
-		startActivity(intent);
-		
-	}
-	
-	public void playEasyMode(View view){
-		Intent intent = new Intent(this, MainActivity.class);
-		intent.putExtra("com.buckley.flummoxed.EasyMode", "true");
-		startActivity(intent);
-	}
-	
-	public void playTutorial(View view){
-		Intent intent = new Intent(this, TutorialActivity.class);
+	public void next(View view){
+		Intent intent = new Intent (this, TitleActivity.class);
 		startActivity(intent);
 	}
 }

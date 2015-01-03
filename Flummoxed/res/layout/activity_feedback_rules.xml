@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#557ECE"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.buckley.flummoxed.FeedbackRulesActivity" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFC558"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tutorial_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:enabled="false"
+            android:gravity="center"
+            android:inputType="none"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" 
+            android:text="@string/textbox_tutorialFeedback">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="#FFC558"
+            android:layout_weight="3"
+            android:orientation="horizontal" >
+           <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/initial_guess"
+            android:src="@drawable/initial_guess" />
+           <TextView
+            android:id="@+id/tutorial_initialGuessTextbox"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:gravity="center"
+            android:inputType="none"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" 
+            android:text="@string/initial_guess_description">
+        </TextView>
+           </LinearLayout>
+
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFC558"
+            android:orientation="horizontal" >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:onClick="next"
+                android:text="@string/button_Next"
+                android:typeface="serif" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

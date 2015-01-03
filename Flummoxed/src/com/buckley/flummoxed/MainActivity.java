@@ -7,6 +7,7 @@ import com.buckley.flummoxed.gameLogic.*;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -29,7 +30,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		stats = new GameStats(5,RandomNumberGenerator.getNonrepeatingRandomNumber(largestNumberAllowed(5)));
 		assess = new AssessGuess(stats);
-		isTutorial();
+		isEasyMode();
 		setLongClickListeners();
 		setZeroButtonStartState();
 	}
@@ -49,10 +50,10 @@ public class MainActivity extends Activity {
 	/**
 	 * 
 	 */
-	private void isTutorial() {
+	private void isEasyMode() {
 		Intent intent = getIntent();
-		String isTutorialExtra = intent.getStringExtra("com.buckley.flummoxed.Tutorial");
-		if(isTutorialExtra!=null){
+		String isEasyModeExtra = intent.getStringExtra("com.buckley.flummoxed.EasyMode");
+		if(isEasyModeExtra!=null){
 			stats.setTutorial(true);
 		}
 		
@@ -120,19 +121,28 @@ public class MainActivity extends Activity {
 		disabledButtons.remove(enableButton);
 		enableButton.setBackgroundColor(Color.parseColor("#A7C0EF"));
 	}
+	
+	private boolean acceptableGuess(String guess){
+		if((!guess.isEmpty())&& (guess.length()==5)&& stats.newGuess(Integer.parseInt(guess))){
+			return true;
+		}else{
+			return false;
+		}
+		
+	}
 
 	public void enterGuess(View view){
 		TextView guessbar = (TextView) findViewById(R.id.guessBar);
 		String guess = guessbar.getText().toString();
-		if((!guess.isEmpty())&& (guess.length()==5)&& stats.newGuess(Integer.parseInt(guess))){
-			assess.evaluateGuess(Integer.parseInt(guess));
+		if(acceptableGuess(guess)){
+			assess.evaluateGuess(Integer.parseInt(guess));	
 			guessbar.setText("");
 			showResults(guess);
 			resetButtons();
 			if(assess.isGameWon()){
 				Intent intent = new Intent(this, VictoryActivity.class);
 				try {
-					Thread.sleep(1500);
+					Thread.sleep(500);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -145,7 +155,13 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		}else{
-			//Mark guess as invalid, repeat process
+			/*final Dialog dialog = new Dialog(this);
+
+            dialog.setContentView(R.layout.invalid_guess_popup);
+            dialog.setTitle("Custom Alert Dialog");
+
+
+            dialog.show();*/
 		}
 	}
 
@@ -200,7 +216,7 @@ public class MainActivity extends Activity {
 	 * 
 	 */
  	private void showResults(String guess) {
-		TextView guessbar;
+		TextView guessbar=null;
 		switch(stats.getLivesLeft()){
 		case(9):
 			guessbar = (TextView) findViewById(R.id.showAnswerText1);
@@ -283,5 +299,10 @@ public class MainActivity extends Activity {
 		case(6): return 1000000;
 		default: return 100000;
 		}
+	}
+	
+	public void quitGame(View view){
+		Intent intent = new Intent(this, TitleActivity.class);
+		startActivity(intent);
 	}
 }
