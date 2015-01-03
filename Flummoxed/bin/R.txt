@@ -240,8 +240,9 @@ int drawable ic_launcher 0x7f020059
 int drawable initial_guess 0x7f02005a
 int drawable orange_ball 0x7f02005b
 int drawable red_ball 0x7f02005c
-int drawable try_again_placeholder 0x7f02005d
-int drawable victory_placeholder 0x7f02005e
+int drawable sad_face 0x7f02005d
+int drawable try_again_placeholder 0x7f02005e
+int drawable victory_placeholder 0x7f02005f
 int id action_bar 0x7f05001c
 int id action_bar_activity_content 0x7f050015
 int id action_bar_container 0x7f05001b

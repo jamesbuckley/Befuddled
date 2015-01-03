@@ -1083,8 +1083,9 @@ containing a value of this type.
         public static final int initial_guess=0x7f02005a;
         public static final int orange_ball=0x7f02005b;
         public static final int red_ball=0x7f02005c;
-        public static final int try_again_placeholder=0x7f02005d;
-        public static final int victory_placeholder=0x7f02005e;
+        public static final int sad_face=0x7f02005d;
+        public static final int try_again_placeholder=0x7f02005e;
+        public static final int victory_placeholder=0x7f02005f;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;

@@ -34,7 +34,7 @@
     <string name="label_guess">Guess</string>
     <string name="image_victory">Victory Image</string>
     <string name="victory_label">You Win</string>
-    <string name="title_activity_try_again">Bad Luck</string>
+    <string name="title_activity_try_again">Try Again</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_tutorial">Tutorial</string>
     <string name="title_activity_feedback_rules">Tutorial</string>
