@@ -5,12 +5,12 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:background="@drawable/shape"
-    android:id="@+id/game_over_splash">
+    android:id="@+id/game_winner_splash">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/game_over_image"/>
+        android:background="@drawable/winner_image"/>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
@@ -24,12 +24,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:background="@drawable/unlucky_image"/>
+            android:background="@drawable/congratluations_image"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/correct_answer_was_image"
+            android:background="@drawable/number_of_guesses_image"
             android:id="@+id/imageView" />
 
         <TextView
@@ -38,7 +38,21 @@
             android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:textSize="20dp"
-            android:id="@+id/answerText"/>
+            android:id="@+id/number_of_guess_text"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/win_percentage_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="10dp"
+            android:id="@+id/win_percentage_text"
+            android:text="Win % not available"/>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="horizontal"

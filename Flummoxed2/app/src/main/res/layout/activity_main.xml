@@ -106,5 +106,12 @@
         android:layout_width="wrap_content"
         android:layout_gravity="center"
         android:visibility="gone"/>
+    <include
+        android:id="@+id/game_winner_splash"
+        layout="@layout/game_winner_splash"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"/>
 
 </android.support.design.widget.CoordinatorLayout>

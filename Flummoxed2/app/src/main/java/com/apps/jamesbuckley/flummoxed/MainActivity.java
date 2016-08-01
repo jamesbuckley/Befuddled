@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         if(currentGuess.length()<5){
             currentGuess = currentGuess+buttonText;
             guessText.setText(currentGuess);
-            YoYo.with(Techniques.FadeIn).duration(100).playOn(guessText);
+            YoYo.with(Techniques.FadeIn).duration(200).playOn(guessText);
             button.setEnabled(false);
             if(disabledButtons.isEmpty()){
                 setDisabledButtonsGameState();
@@ -129,7 +129,11 @@ public class MainActivity extends AppCompatActivity {
             revertUI();
             showGuessFeedback(guessFeedback);
             currentGuess = "";
-            decrementLives();
+            if(!assess.isGameWon){
+                decrementLives();
+            }else{
+                callGameWonSplash();
+            }
         }else{
             YoYo.with(Techniques.Shake).playOn(guessText);
         }
@@ -173,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
         }
         setDisabledButtonsStartState();
         YoYo.with(Techniques.FadeOut).playOn(guessText);
-        //guessText.setText("");
     }
 
     private void showGuessFeedback(int[] guessFeedbackInts){
@@ -205,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                     .animate();
             ImageView lifeCounter = (ImageView) findViewById(R.id.lifeCounterImageView);
             lifeCounter.setVisibility(View.INVISIBLE);
-            callGameOverActivity();
+            callGameOverSplash();
         }else{
             String lifeImage = "life_number_" + Integer.toString(stats.getLivesLeft());
             ImageView lifeCounter = (ImageView) findViewById(R.id.lifeCounterImageView);
@@ -214,13 +217,23 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void callGameOverActivity() {
+    private void callGameOverSplash() {
         View transparentOverlay = findViewById(R.id.transparentOverlay);
         ViewGroup gameOverSplash = (ViewGroup)findViewById(R.id.game_over_splash);
         ((TextView)gameOverSplash.findViewById(R.id.answerText)).setText(stats.getAnswer());
         transparentOverlay.setVisibility(View.VISIBLE);
         gameOverSplash.setVisibility(View.VISIBLE);
         YoYo.with(Techniques.BounceInDown).duration(1500).playOn(gameOverSplash);
+    }
+
+    private void callGameWonSplash(){
+        View transparentOverlay = findViewById(R.id.transparentOverlay);
+        ViewGroup gameWinnerSplash = (ViewGroup)findViewById(R.id.game_winner_splash);
+        TextView guessNumber = (TextView)gameWinnerSplash.findViewById(R.id.number_of_guess_text);
+        guessNumber.setText(Integer.toString(stats.getNumberOfGuesses()));
+        transparentOverlay.setVisibility(View.VISIBLE);
+        gameWinnerSplash.setVisibility(View.VISIBLE);
+        YoYo.with(Techniques.Landing).duration(3000).playOn(gameWinnerSplash);
     }
 
     private ImageView createImageView(int feedbackInt){

@@ -11,8 +11,10 @@ public class AssessGuess {
     private boolean[] guessStatus;
     private GameStats stats;
 
+    public static boolean isGameWon=false;
     public AssessGuess(GameStats stats){
         this.stats=stats;
+        isGameWon=false;
     }
 
     public int[] evaluateGuess(int guess){
@@ -26,12 +28,11 @@ public class AssessGuess {
         return status;
     }
 
-    public boolean isGameWon(){
+    public void isGameWon(){
     	int[] winning = {2,2,2,2,2};
     	if(Arrays.equals(status, winning)){
-    		return true;
+    		isGameWon=true;
     	}
-		return false;
     }
 
     private void assessBlackBalls(String guess){
