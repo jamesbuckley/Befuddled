@@ -1,5 +1,6 @@
 package com.apps.jamesbuckley.flummoxed;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -133,6 +134,10 @@ public class MainActivity extends AppCompatActivity {
             YoYo.with(Techniques.Shake).playOn(guessText);
         }
     }
+
+    public void restart(View view){
+        this.recreate();
+    }
 //
 //    // UI Control methods
 //    ////////////////////////////////////////////
@@ -211,7 +216,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void callGameOverActivity() {
         View transparentOverlay = findViewById(R.id.transparentOverlay);
+        ViewGroup gameOverSplash = (ViewGroup)findViewById(R.id.game_over_splash);
+        ((TextView)gameOverSplash.findViewById(R.id.answerText)).setText(stats.getAnswer());
         transparentOverlay.setVisibility(View.VISIBLE);
+        gameOverSplash.setVisibility(View.VISIBLE);
+        YoYo.with(Techniques.BounceInDown).duration(1500).playOn(gameOverSplash);
     }
 
     private ImageView createImageView(int feedbackInt){
