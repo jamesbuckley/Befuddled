@@ -5,23 +5,24 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.apps.jamesbuckley.flummoxed.gameLogic.AssessGuess;
 import com.apps.jamesbuckley.flummoxed.gameLogic.GameStats;
 import com.apps.jamesbuckley.flummoxed.gameLogic.RandomNumberGenerator;
+import com.easyandroidanimations.library.ExplodeAnimation;
 import com.jaouan.revealator.Revealator;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
         if(currentGuess.length()<5){
             currentGuess = currentGuess+buttonText;
             guessText.setText(currentGuess);
+            YoYo.with(Techniques.FadeIn).duration(100).playOn(guessText);
             button.setEnabled(false);
             if(disabledButtons.isEmpty()){
                 setDisabledButtonsGameState();
@@ -128,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
             currentGuess = "";
             decrementLives();
         }else{
-            //Mark guess as invalid, repeat process
+            YoYo.with(Techniques.Shake).playOn(guessText);
         }
     }
 //
@@ -165,7 +167,8 @@ public class MainActivity extends AppCompatActivity {
             disabledButtons.pop().setEnabled(true);
         }
         setDisabledButtonsStartState();
-        guessText.setText("");
+        YoYo.with(Techniques.FadeOut).playOn(guessText);
+        //guessText.setText("");
     }
 
     private void showGuessFeedback(int[] guessFeedbackInts){
@@ -176,19 +179,39 @@ public class MainActivity extends AppCompatActivity {
 
 
         ((TextView) newView.findViewById(R.id.guess_textView_1)).setText(currentGuess);
+        YoYo.with(Techniques.FadeIn).delay(200).playOn(newView.findViewById(R.id.guess_textView_1));
         LinearLayout resultImageContainer = (LinearLayout)newView.findViewById(R.id.guess_imageLayout_1);
+        mContainerView.addView(newView, 0);
         for(int feedbackInt: guessFeedbackInts){
             if(feedbackInt!=0){
-                resultImageContainer.addView(createImageView(feedbackInt));
+                ImageView ballImage = createImageView(feedbackInt);
+                resultImageContainer.addView(ballImage);
+                YoYo.with(Techniques.BounceIn).delay(200).playOn(ballImage);
             }
         }
-        mContainerView.addView(newView, 0);
     }
 
     private void decrementLives(){
-        String lifeImage = "life_number_" + Integer.toString(stats.getLivesLeft());
-        ImageView lifeCounter = (ImageView) findViewById(R.id.lifeCounterImageView);
-        lifeCounter.setImageResource(getResources().getIdentifier(lifeImage, "drawable", "com.apps.jamesbuckley.flummoxed"));
+        if(stats.isGameOver()){
+            new ExplodeAnimation(numpad)
+                    .setExplodeMatrix(ExplodeAnimation.MATRIX_3X3)
+                    .setInterpolator(new AccelerateDecelerateInterpolator())
+                    .setDuration(400)
+                    .animate();
+            ImageView lifeCounter = (ImageView) findViewById(R.id.lifeCounterImageView);
+            lifeCounter.setVisibility(View.INVISIBLE);
+            callGameOverActivity();
+        }else{
+            String lifeImage = "life_number_" + Integer.toString(stats.getLivesLeft());
+            ImageView lifeCounter = (ImageView) findViewById(R.id.lifeCounterImageView);
+            YoYo.with(Techniques.Flash).playOn(lifeCounter);
+            lifeCounter.setImageResource(getResources().getIdentifier(lifeImage, "drawable", "com.apps.jamesbuckley.flummoxed"));
+        }
+    }
+
+    private void callGameOverActivity() {
+        View transparentOverlay = findViewById(R.id.transparentOverlay);
+        transparentOverlay.setVisibility(View.VISIBLE);
     }
 
     private ImageView createImageView(int feedbackInt){

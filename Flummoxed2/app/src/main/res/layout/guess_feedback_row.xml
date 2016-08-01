@@ -8,7 +8,7 @@
     <!--&lt;!&ndash; A button that, when pressed, will delete this list item row from its container. &ndash;&gt;-->
 
     <TextView
-        android:text="12345"
+        android:text=""
         android:id="@+id/guess_textView_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
