@@ -29,25 +29,25 @@
             android:divider="?android:dividerHorizontal"
             android:animateLayoutChanges="true"
             android:paddingLeft="16dp"
-            android:paddingRight="16dp" />
+            android:paddingRight="16dp">
+
+         <!-- One empty row so the guess bar doesn't block old guess on smaller screens -->
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="?android:listPreferredItemHeightSmall"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"/>
+        </LinearLayout>
 
     </ScrollView>
-
-    <!-- The "empty" view to show when there are no items in the "list" view defined above. -->
-    <TextView android:id="@android:id/empty"
-        style="?android:textAppearanceSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="32dp"
-        android:text="Enter Guess"
-        android:textColor="?android:textColorSecondary" />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimaryLight"
+        android:layout_marginBottom="1dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -69,7 +69,7 @@
     </LinearLayout>
 </RelativeLayout>
 
-    <include android:id="@+id/numpad" android:layout_width="fill_parent" android:layout_gravity="bottom|end" android:layout_height="wrap_content" android:layout_marginBottom="52dp" layout="@layout/input_numpad"/>
+    <include android:id="@+id/numpad" android:layout_width="wrap_content" android:layout_gravity="bottom|left" android:layout_height="wrap_content" android:layout_marginLeft="3dp" android:layout_marginBottom="60dp" layout="@layout/input_numpad"/>
 
   </io.codetail.widget.RevealFrameLayout>
     <android.support.design.widget.FloatingActionButton
@@ -78,6 +78,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/hashtag_image" />
+        android:src="@drawable/keyboard_indicator" />
 
 </android.support.design.widget.CoordinatorLayout>

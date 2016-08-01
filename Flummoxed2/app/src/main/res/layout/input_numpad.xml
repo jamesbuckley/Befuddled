@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape"
     android:layout_marginBottom="26dp">
 
     <LinearLayout
@@ -58,9 +59,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Back"
-            android:onClick="backspace"
-            android:id="@+id/button_number_back"
+            android:text="Enter"
+            android:onClick="enterGuess"
+            android:id="@+id/button_number_enter"
             android:background="@color/colorPrimaryLight"
             android:textStyle="bold"/>
     </LinearLayout>
@@ -117,9 +118,9 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Enter"
-            android:onClick="enterGuess"
-            android:id="@+id/button_number_enter"
+            android:text="Back"
+            android:onClick="backspace"
+            android:id="@+id/button_number_back"
             android:background="@color/colorPrimaryLight" />
     </LinearLayout>
 </LinearLayout>

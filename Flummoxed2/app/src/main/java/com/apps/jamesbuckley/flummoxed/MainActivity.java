@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         if(currentGuess.length()==5){
             Button enter = (Button) findViewById(R.id.button_number_enter);
             enter.setEnabled(true);
-            enter.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+            enter.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         }
     }
 
@@ -170,7 +170,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void showGuessFeedback(int[] guessFeedbackInts){
 
-        findViewById(android.R.id.empty).setVisibility(View.GONE);
         // Instantiate a new "row" view.
         final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
                 R.layout.guess_feedback_row, mContainerView, false);
