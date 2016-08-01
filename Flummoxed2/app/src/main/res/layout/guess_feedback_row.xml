@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?android:listPreferredItemHeightSmall"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_marginLeft="20dp">
+
+    <!--&lt;!&ndash; A button that, when pressed, will delete this list item row from its container. &ndash;&gt;-->
+
+    <TextView
+        android:text="12345"
+        android:id="@+id/guess_textView_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:letterSpacing="0.1"
+        android:textColor="@color/colorPrimaryText">
+    </TextView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:id="@+id/guess_imageLayout_1"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

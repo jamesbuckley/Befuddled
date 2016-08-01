@@ -11,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.apps.jamesbuckley.flummoxed.gameLogic.AssessGuess;
@@ -32,12 +34,13 @@ public class MainActivity extends AppCompatActivity {
     private Stack<Button> disabledButtons = new Stack<Button>();
     private FloatingActionButton fab;
 
+    private ViewGroup mContainerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mContainerView = (ViewGroup) findViewById(R.id.container);
         numpad = findViewById(R.id.numpad);
         numpad.setVisibility(View.INVISIBLE);
         setDisabledButtonsStartState();
@@ -58,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -77,9 +81,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // Button methods
-    ////////////////////////////////////////////
 
+//    // Button methods
+//    ////////////////////////////////////////////
+//
     public void enterNumber(View numberButton){
         Button button = (Button) numberButton;
         String buttonText = button.getText().toString();
@@ -126,9 +131,9 @@ public class MainActivity extends AppCompatActivity {
             //Mark guess as invalid, repeat process
         }
     }
-
-    // UI Control methods
-    ////////////////////////////////////////////
+//
+//    // UI Control methods
+//    ////////////////////////////////////////////
     private void setDisabledButtonsStartState() {
         Button zero = (Button) findViewById(R.id.button_number_0);
         zero.setEnabled(false);
@@ -147,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void toggleNumpad(){
-        
+
         if(numpad.getVisibility()==View.VISIBLE){
             Revealator.unreveal(numpad).withDuration(350).start();
         }else{
@@ -164,16 +169,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showGuessFeedback(int[] guessFeedbackInts){
-        String guessTextViewString = "guess_textView_"+ stats.getNumberOfGuesses();
-        String guessImageContainerString = "guess_imageLayout_"+stats.getNumberOfGuesses();
-        TextView guessTextView = (TextView) findViewById(getResources().getIdentifier(guessTextViewString, "id", "com.apps.jamesbuckley.flummoxed"));
-        guessTextView.setText(currentGuess);
-        LinearLayout resultImageContainer = (LinearLayout)findViewById(getResources().getIdentifier(guessImageContainerString, "id", "com.apps.jamesbuckley.flummoxed"));
+
+        findViewById(android.R.id.empty).setVisibility(View.GONE);
+        // Instantiate a new "row" view.
+        final ViewGroup newView = (ViewGroup) LayoutInflater.from(this).inflate(
+                R.layout.guess_feedback_row, mContainerView, false);
+
+
+        ((TextView) newView.findViewById(R.id.guess_textView_1)).setText(currentGuess);
+        LinearLayout resultImageContainer = (LinearLayout)newView.findViewById(R.id.guess_imageLayout_1);
         for(int feedbackInt: guessFeedbackInts){
             if(feedbackInt!=0){
                 resultImageContainer.addView(createImageView(feedbackInt));
             }
         }
+        mContainerView.addView(newView, 0);
     }
 
     private void decrementLives(){

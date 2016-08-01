@@ -6,23 +6,72 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context="com.apps.jamesbuckley.flummoxed.MainActivity">
-
-    <android.support.design.widget.AppBarLayout
+    <io.codetail.widget.RevealFrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+    <!-- A vertical LinearLayout in a ScrollView. This emulates a ListView (and is lighter weight
+         than a ListView when there aren't many rows). -->
+    <ScrollView android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Note that this LinearLayout has the "animateLayoutChanges" property set to true.
+             This tells the framework to automatically animate child views (in this case, rows)
+             as they are added to and removed from the LinearLayout. -->
+        <LinearLayout android:id="@+id/container"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:showDividers="middle"
+            android:divider="?android:dividerHorizontal"
+            android:animateLayoutChanges="true"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
 
-    </android.support.design.widget.AppBarLayout>
+    </ScrollView>
 
-    <include layout="@layout/content_main" />
+    <!-- The "empty" view to show when there are no items in the "list" view defined above. -->
+    <TextView android:id="@android:id/empty"
+        style="?android:textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="32dp"
+        android:text="Enter Guess"
+        android:textColor="?android:textColorSecondary" />
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryLight"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/lifeCounterImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/life_number_10" />
+        <TextView
+            android:text=""
+            android:id="@+id/currentGuessView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:letterSpacing="0.1"
+            android:textColor="@color/colorPrimaryText"
+            android:layout_marginStart="20dp">
+        </TextView>
+
+    </LinearLayout>
+</RelativeLayout>
+
+    <include android:id="@+id/numpad" android:layout_width="fill_parent" android:layout_gravity="bottom|end" android:layout_height="wrap_content" android:layout_marginBottom="52dp" layout="@layout/input_numpad"/>
+
+  </io.codetail.widget.RevealFrameLayout>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
