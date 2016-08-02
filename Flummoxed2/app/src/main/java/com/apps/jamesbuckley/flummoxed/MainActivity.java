@@ -22,6 +22,8 @@ import com.easyandroidanimations.library.ExplodeAnimation;
 import com.jaouan.revealator.Revealator;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.nineoldandroids.animation.Animator;
+
 import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private String currentGuess = "";
     private Stack<Button> disabledButtons = new Stack<Button>();
     private FloatingActionButton fab;
+    private String difficultyLevel;
 
     private ViewGroup mContainerView;
 
@@ -56,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Intent intent = getIntent();
-        String difficultyLevel = intent.getStringExtra(MenuActivity.DIFFICULTY_LEVEL);
+        difficultyLevel = intent.getStringExtra(MenuActivity.DIFFICULTY_LEVEL);
         int numberOfLives=10;
 
         switch (difficultyLevel.toLowerCase()){
@@ -208,8 +211,31 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout resultImageContainer = (LinearLayout)newView.findViewById(R.id.guess_imageLayout_1);
         mContainerView.addView(newView, 0);
         for(int feedbackInt: guessFeedbackInts){
-            if(feedbackInt!=0){
-                ImageView ballImage = createImageView(feedbackInt);
+            if(!(difficultyLevel.equalsIgnoreCase("expert") & feedbackInt==0)){
+                final ImageView ballImage = createImageView(feedbackInt);
+                if(difficultyLevel.equalsIgnoreCase("intermediate") & feedbackInt==0){
+                    YoYo.with(Techniques.FadeOut).delay(5000).withListener(new Animator.AnimatorListener() {
+                        @Override
+                        public void onAnimationStart(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationEnd(Animator animation) {
+                            ballImage.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onAnimationCancel(Animator animation) {
+
+                        }
+
+                        @Override
+                        public void onAnimationRepeat(Animator animation) {
+
+                        }
+                    }).playOn(ballImage);
+                }
                 resultImageContainer.addView(ballImage);
                 YoYo.with(Techniques.BounceIn).delay(200).playOn(ballImage);
             }
@@ -260,6 +286,8 @@ public class MainActivity extends AppCompatActivity {
             resultImage.setImageResource(R.drawable.yellow_ball);
         }else if(feedbackInt == 2){
             resultImage.setImageResource(R.drawable.green_ball);
+        }else if(feedbackInt == 0){
+            resultImage.setImageResource(R.drawable.hollow_yellow);
         }
 
         return resultImage;
