@@ -1,8 +1,6 @@
 package com.apps.jamesbuckley.flummoxed;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Color;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -56,7 +54,26 @@ public class MainActivity extends AppCompatActivity {
                 toggleNumpad();
             }
         });
-        stats = new GameStats(5,RandomNumberGenerator.getNonrepeatingRandomNumber(GameStats.largestNumberAllowed(5)));
+
+        Intent intent = getIntent();
+        String difficultyLevel = intent.getStringExtra(MenuActivity.DIFFICULTY_LEVEL);
+        int numberOfLives=10;
+
+        switch (difficultyLevel.toLowerCase()){
+            case "beginner":
+                numberOfLives = 8;
+                break;
+            case "intermediate":
+                numberOfLives = 9;
+                break;
+            case "expert":
+                numberOfLives = 10;
+        }
+        String lifeImage = "life_number_" + numberOfLives;
+        ImageView lifeCounter = (ImageView) findViewById(R.id.lifeCounterImageView);
+        lifeCounter.setImageResource(getResources().getIdentifier(lifeImage, "drawable", "com.apps.jamesbuckley.flummoxed"));
+
+        stats = new GameStats(5,RandomNumberGenerator.getNonrepeatingRandomNumber(GameStats.largestNumberAllowed(5)), numberOfLives);
         assess = new AssessGuess(stats);
     }
 

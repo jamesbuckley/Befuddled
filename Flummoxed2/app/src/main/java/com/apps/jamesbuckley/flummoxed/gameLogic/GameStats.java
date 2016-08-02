@@ -38,7 +38,7 @@ public class GameStats {
 
     public GameStats(int numberOfDigits, int answer,int numberOfLives){
         this.answer=answer;
-        System.out.println(answer);
+        this.numberOfDigits=numberOfDigits;
         livesLeft=numberOfLives;
     }
 
