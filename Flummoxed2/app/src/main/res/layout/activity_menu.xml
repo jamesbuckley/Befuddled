@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/firstGreenBall"
         android:background="@drawable/green_ball"
-        android:visibility="invisible"/>
+        />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,13 +33,12 @@
         android:layout_height="wrap_content"
         android:id="@+id/secondGreenBall"
         android:background="@drawable/green_ball"
-        android:visibility="invisible"/>
+        />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/secondYellowBall"
-        android:background="@drawable/yellow_ball"
-        android:visibility="invisible"/>
+        android:background="@drawable/yellow_ball" />
 
     </RelativeLayout>
 

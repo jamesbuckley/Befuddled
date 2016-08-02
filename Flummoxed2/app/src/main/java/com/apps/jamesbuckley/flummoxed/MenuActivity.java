@@ -30,7 +30,7 @@ public class MenuActivity extends AppCompatActivity {
         secondYellow = (ImageView) findViewById(R.id.secondYellowBall);
 
         intent = new Intent(this, MainActivity.class);
-
+        startPaths();
     }
 
     public void easyMode(View view){
@@ -48,6 +48,10 @@ public class MenuActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void paths(View view){
+        startPaths();
+    }
+
     private void startPaths(){
         ArrayList<Point> firstYellowPoints = new ArrayList<Point>();
         ArrayList<Point> secondYellowPoints = new ArrayList<Point>();
@@ -55,30 +59,13 @@ public class MenuActivity extends AppCompatActivity {
         ArrayList<Point> secondGreenPoints = new ArrayList<Point>();
 
         Point point1 = new Point(0,0);
-        Point point2 = new Point(10,10);
-        Point point3 = new Point(40,40);
-        Point point4 = new Point(50,50);
-        Point point5 = new Point(60,60);
-        Point point6 = new Point(70,70);
-        Point point7 = new Point(80,80);
-        Point point8 = new Point(90,90);
-        Point point9 = new Point(0,0);
-        Point point10 = new Point(0,0);
-        Point point11 = new Point(0,0);
-        Point point12 = new Point(100,100);
-
-        Point point13 = new Point(0,0);
-        Point point14 = new Point(0,0);
-        Point point15 = new Point(0,0);
-        Point point16 = new Point(0,0);
-        Point point17 = new Point(0,0);
-        Point point18 = new Point(0,0);
-        Point point19 = new Point(0,0);
-        Point point20 = new Point(0,0);
-        Point point21 = new Point(0,0);
-        Point point22 = new Point(0,0);
-        Point point23 = new Point(0,0);
-        Point point24 = new Point(0,0);
+        Point point2 = new Point(100,100);
+        Point point3 = new Point(50,0);
+        Point point4 = new Point(0,50);
+        Point point5 = new Point(50,100);
+        Point point6 = new Point(100,50);
+        Point point7 = new Point(100,0);
+        Point point8 = new Point(0,10);
 
         firstYellowPoints.add(point1);
         firstYellowPoints.add(point2);
@@ -86,12 +73,64 @@ public class MenuActivity extends AppCompatActivity {
         firstYellowPoints.add(point4);
         firstYellowPoints.add(point5);
         firstYellowPoints.add(point6);
-        firstYellowPoints.add(point7);
-        firstYellowPoints.add(point8);
+        firstYellowPoints.add(point3);
+        firstYellowPoints.add(point4);
+        firstYellowPoints.add(point2);
+        firstYellowPoints.add(point1);
+
+        firstGreenPoints.add(point7);
+        firstGreenPoints.add(point8);
+        firstGreenPoints.add(point6);
+        firstGreenPoints.add(point3);
+        firstGreenPoints.add(point8);
+        firstGreenPoints.add(point6);
+        firstGreenPoints.add(point1);
+        firstGreenPoints.add(point5);
+        firstGreenPoints.add(point7);
+        firstGreenPoints.add(point2);
+
+        secondYellowPoints.add(point8);
+        secondYellowPoints.add(point6);
+        secondYellowPoints.add(point1);
+        secondYellowPoints.add(point5);
+        secondYellowPoints.add(point7);
+        secondYellowPoints.add(point8);
+        secondYellowPoints.add(point3);
+        secondYellowPoints.add(point8);
+        secondYellowPoints.add(point6);
+        secondYellowPoints.add(point8);
+
+        secondGreenPoints.add(point2);
+        secondGreenPoints.add(point1);
+        secondGreenPoints.add(point5);
+        secondGreenPoints.add(point6);
+        secondGreenPoints.add(point3);
+        secondGreenPoints.add(point8);
+        secondGreenPoints.add(point7);
+        secondGreenPoints.add(point3);
+        secondGreenPoints.add(point1);
+        secondGreenPoints.add(point2);
+
+
         new PathAnimation(firstYellow)
-                .setInterpolator(new AccelerateInterpolator())
+                .setAnchorPoint(PathAnimation.ANCHOR_TOP_LEFT)
                 .setPoints(firstYellowPoints)
-                .setDuration(50000)
+                .setDuration(12000)
+                .animate();
+        new PathAnimation(firstGreen)
+                .setAnchorPoint(PathAnimation.ANCHOR_BOTTOM_LEFT)
+                .setPoints(firstGreenPoints)
+                .setDuration(12000)
+                .animate();
+        new PathAnimation(secondYellow)
+                .setAnchorPoint(PathAnimation.ANCHOR_BOTTOM_RIGHT)
+                .setPoints(secondYellowPoints)
+                .setDuration(12000)
+                .animate();
+        new PathAnimation(secondGreen)
+                .setAnchorPoint(PathAnimation.ANCHOR_TOP_RIGHT)
+                .setPoints(secondGreenPoints)
+                .setDuration(12000)
                 .animate();
     }
 }
