@@ -1,5 +1,7 @@
 package com.apps.jamesbuckley.flummoxed.gameLogic;
 
+import android.content.SharedPreferences;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -85,5 +87,9 @@ public class GameStats {
             case(6): return 1000000;
             default: return 100000;
         }
+    }
+
+    public void incrementWinStreak(){
+
     }
 }

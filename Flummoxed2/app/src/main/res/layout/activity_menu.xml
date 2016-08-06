@@ -21,6 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/firstGreenBall"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/green_ball"
         />
     <ImageView
@@ -33,12 +34,31 @@
         android:layout_height="wrap_content"
         android:id="@+id/secondGreenBall"
         android:background="@drawable/green_ball"
+        android:layout_alignParentRight="true"
         />
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/secondYellowBall"
-        android:background="@drawable/yellow_ball" />
+        android:background="@drawable/yellow_ball"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/thirdGreenBall"
+        android:background="@drawable/green_ball"
+        android:layout_centerHorizontal="true"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/thirdYellowBall"
+        android:background="@drawable/yellow_ball"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 

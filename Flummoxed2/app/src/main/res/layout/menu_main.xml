@@ -48,6 +48,7 @@
                 android:layout_height="wrap_content" >
 
                 <Button
+                    android:id="@+id/intermediateGameButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorTextIcons"
@@ -57,13 +58,14 @@
                     android:layout_marginBottom="10dp"
                     android:textSize="15dp"
                     android:onClick="intermediateMode"
-                    android:text="Intermediate"/>
+                    android:text="Intermediate" />
             </TableRow>
             <TableRow
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
                 <Button
+                    android:id="@+id/expertGameButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorTextIcons"
@@ -73,7 +75,7 @@
                     android:layout_marginBottom="10dp"
                     android:textSize="15dp"
                     android:onClick="expertMode"
-                    android:text="Expert"/>
+                    android:text="Expert" />
             </TableRow>
             <TableRow
                 android:layout_width="wrap_content"
@@ -83,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorTextIcons"
-                    android:background="@drawable/green_rounded_rectangle"
+                    android:background="@drawable/grey_rounded_rectangle"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"

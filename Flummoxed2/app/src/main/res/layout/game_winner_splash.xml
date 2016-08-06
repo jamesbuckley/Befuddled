@@ -54,6 +54,20 @@
             android:id="@+id/win_percentage_text"
             android:text="Win % not available"/>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/win_streak_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="10dp"
+            android:id="@+id/win_streak_text"
+            android:text="Win streak not available"/>
+
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
@@ -80,7 +94,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="10dp"
-                android:enabled="false"
+                android:onClick="mainMenu"
                 android:text="Main Menu"/>
         </LinearLayout>
     </LinearLayout>

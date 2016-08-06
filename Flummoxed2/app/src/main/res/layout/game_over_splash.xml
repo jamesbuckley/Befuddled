@@ -66,7 +66,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginBottom="10dp"
-                android:enabled="false"
+                android:onClick="mainMenu"
                 android:text="Main Menu"/>
         </LinearLayout>
     </LinearLayout>

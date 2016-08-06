@@ -1,6 +1,8 @@
 package com.apps.jamesbuckley.flummoxed;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +26,8 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.nineoldandroids.animation.Animator;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Stack;
 
 public class MainActivity extends AppCompatActivity {
@@ -36,45 +40,27 @@ public class MainActivity extends AppCompatActivity {
     private Stack<Button> disabledButtons = new Stack<Button>();
     private FloatingActionButton fab;
     private String difficultyLevel;
-
+    private SharedPreferences sharedPreferences;
     private ViewGroup mContainerView;
+    private SharedPreferences.Editor editor;
+    private Intent intent;
+    private int winStreak;
+    private int totalWins;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mContainerView = (ViewGroup) findViewById(R.id.container);
-        numpad = findViewById(R.id.numpad);
-        numpad.setVisibility(View.INVISIBLE);
-        setDisabledButtonsStartState();
-        guessText = (TextView)findViewById(R.id.currentGuessView);
-
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                toggleNumpad();
-            }
-        });
-
-        Intent intent = getIntent();
+        intent = getIntent();
         difficultyLevel = intent.getStringExtra(MenuActivity.DIFFICULTY_LEVEL);
-        int numberOfLives=10;
-
-        switch (difficultyLevel.toLowerCase()){
-            case "beginner":
-                numberOfLives = 8;
-                break;
-            case "intermediate":
-                numberOfLives = 9;
-                break;
-            case "expert":
-                numberOfLives = 10;
-        }
-        String lifeImage = "life_number_" + numberOfLives;
-        ImageView lifeCounter = (ImageView) findViewById(R.id.lifeCounterImageView);
-        lifeCounter.setImageResource(getResources().getIdentifier(lifeImage, "drawable", "com.apps.jamesbuckley.flummoxed"));
+        initialiseViews();
+        setDisabledButtonsStartState();
+        newGameCounter();
+        int numberOfLives= getNumberOfLives();
+        showTutorial();
+        setStartingLivesImage(numberOfLives);
+        mp = MediaPlayer.create(this, R.raw.guess_entered_sound);
 
         stats = new GameStats(5,RandomNumberGenerator.getNonrepeatingRandomNumber(GameStats.largestNumberAllowed(5)), numberOfLives);
         assess = new AssessGuess(stats);
@@ -98,9 +84,55 @@ public class MainActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else if(id == R.id.new_game_action){
+            //pass in any view, not used in restart
+            winStreak=0;
+            switch (difficultyLevel.toLowerCase()){
+                case "beginner":
+                    editor.putInt("winStreakBeginner",winStreak);
+                    break;
+                case "intermediate":
+                    editor.putInt("winStreakIntermediate",winStreak);
+                    break;
+                case "expert":
+                    editor.putInt("winStreakExpert",winStreak);
+            }
+            editor.commit();
+            restart(numpad);
+        }else if(id == R.id.main_menu_action){
+            mainMenu(numpad);
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        ViewGroup helperInfo = (ViewGroup)findViewById(R.id.info_indicator_layout);
+        if (helperInfo.getVisibility()==View.VISIBLE && difficultyLevel.equalsIgnoreCase("beginner")) {
+            YoYo.with(Techniques.FadeOutUp).delay(15000).duration(5000).playOn(helperInfo);
+            YoYo.with(Techniques.Flash).delay(6000).duration(5000).withListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    YoYo.with(Techniques.Flash).delay(5000).duration(5000).playOn(fab);
+                }
+
+                @Override
+                public void onAnimationCancel(Animator animation) {
+
+                }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) {
+
+                }
+            }).playOn(fab);
+        }
     }
 
 
@@ -152,15 +184,25 @@ public class MainActivity extends AppCompatActivity {
             if(!assess.isGameWon){
                 decrementLives();
             }else{
-                callGameWonSplash();
+                gameWinnerLogic();
             }
         }else{
             YoYo.with(Techniques.Shake).playOn(guessText);
         }
     }
 
+    public void mainMenu(View view){
+        intent = new Intent(this, MenuActivity.class);
+        this.startActivity(intent);
+    }
+
     public void restart(View view){
         this.recreate();
+    }
+
+    public void hideTutorial(View view){
+        View tutorial = (View)view.getParent().getParent();
+        tutorial.setVisibility(View.GONE);
     }
 //
 //    // UI Control methods
@@ -214,7 +256,7 @@ public class MainActivity extends AppCompatActivity {
             if(!(difficultyLevel.equalsIgnoreCase("expert") & feedbackInt==0)){
                 final ImageView ballImage = createImageView(feedbackInt);
                 if(difficultyLevel.equalsIgnoreCase("intermediate") & feedbackInt==0){
-                    YoYo.with(Techniques.FadeOut).delay(5000).withListener(new Animator.AnimatorListener() {
+                    YoYo.with(Techniques.FadeOut).delay(4000).withListener(new Animator.AnimatorListener() {
                         @Override
                         public void onAnimationStart(Animator animation) {
 
@@ -256,26 +298,46 @@ public class MainActivity extends AppCompatActivity {
             String lifeImage = "life_number_" + Integer.toString(stats.getLivesLeft());
             ImageView lifeCounter = (ImageView) findViewById(R.id.lifeCounterImageView);
             YoYo.with(Techniques.Flash).playOn(lifeCounter);
+            mp.start();
             lifeCounter.setImageResource(getResources().getIdentifier(lifeImage, "drawable", "com.apps.jamesbuckley.flummoxed"));
         }
     }
 
     private void callGameOverSplash() {
+        winStreak=0;
+        switch (difficultyLevel.toLowerCase()){
+            case "beginner":
+                editor.putInt("winStreakBeginner",winStreak);
+                break;
+            case "intermediate":
+                editor.putInt("winStreakIntermediate",winStreak);
+                break;
+            case "expert":
+                editor.putInt("winStreakExpert",winStreak);
+        }
+        editor.commit();
         View transparentOverlay = findViewById(R.id.transparentOverlay);
         ViewGroup gameOverSplash = (ViewGroup)findViewById(R.id.game_over_splash);
         ((TextView)gameOverSplash.findViewById(R.id.answerText)).setText(stats.getAnswer());
         transparentOverlay.setVisibility(View.VISIBLE);
         gameOverSplash.setVisibility(View.VISIBLE);
+        mp = MediaPlayer.create(this, R.raw.losing_failfare_audio);
+        mp.start();
         YoYo.with(Techniques.BounceInDown).duration(1500).playOn(gameOverSplash);
     }
 
-    private void callGameWonSplash(){
+    private void callGameWonSplash(String winPercentage, int winStreak){
         View transparentOverlay = findViewById(R.id.transparentOverlay);
         ViewGroup gameWinnerSplash = (ViewGroup)findViewById(R.id.game_winner_splash);
         TextView guessNumber = (TextView)gameWinnerSplash.findViewById(R.id.number_of_guess_text);
         guessNumber.setText(Integer.toString(stats.getNumberOfGuesses()));
+        TextView winStreakText = (TextView)gameWinnerSplash.findViewById(R.id.win_streak_text);
+        winStreakText.setText(Integer.toString(winStreak));
+        ((TextView)findViewById(R.id.win_percentage_text)).setText(winPercentage+"%");
         transparentOverlay.setVisibility(View.VISIBLE);
         gameWinnerSplash.setVisibility(View.VISIBLE);
+        mp = MediaPlayer.create(this, R.raw.winning_tada_audio);
+        mp.start();
         YoYo.with(Techniques.Landing).duration(3000).playOn(gameWinnerSplash);
     }
 
@@ -291,6 +353,140 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return resultImage;
+    }
+
+    private void gameWinnerLogic(){
+        winStreak++;
+        totalWins++;
+        switch (difficultyLevel.toLowerCase()){
+            case "beginner":
+                editor.putInt("winStreakBeginner",winStreak);
+                editor.putInt("totalWinsBeginner",totalWins);
+                editor.putBoolean("beginnerTutoralComplete", true);
+                break;
+            case "intermediate":
+                editor.putInt("winStreakIntermediate",winStreak);
+                editor.putInt("totalWinsIntermediate",totalWins);
+                editor.putBoolean("intermediateTutoralComplete", true);
+                break;
+            case "expert":
+                editor.putInt("winStreakExpert",winStreak);
+                editor.putInt("totalWinsExpert",totalWins);
+                editor.putBoolean("expertTutoralComplete", true);
+        }
+        if(winStreak==5 && difficultyLevel.equalsIgnoreCase("beginner")){
+            editor.putInt("intermediateUnlocked", 1);
+            ViewGroup tutorialView = (ViewGroup) findViewById(R.id.info_indicator_layout);
+            tutorialView.setVisibility(View.VISIBLE);
+            ((TextView)tutorialView.findViewById(R.id.info_text_view)).setText("Intermediate Unlocked");
+            tutorialView.findViewById(R.id.tutorial_table_beginner).setVisibility(View.GONE);
+            tutorialView.findViewById(R.id.tutorial_table_intermediate).setVisibility(View.VISIBLE);
+            ((TextView)tutorialView.findViewById(R.id.tutorial_intermediate_textview)).setText(R.string.info_intermediate_unlocked);
+        }else if(winStreak==5 && difficultyLevel.equalsIgnoreCase("intermediate")){
+            editor.putInt("expertUnlocked", 1);
+            ViewGroup tutorialView = (ViewGroup) findViewById(R.id.info_indicator_layout);
+            tutorialView.setVisibility(View.VISIBLE);
+            ((TextView)tutorialView.findViewById(R.id.info_text_view)).setText("Expert Unlocked");
+            tutorialView.findViewById(R.id.tutorial_table_intermediate).setVisibility(View.VISIBLE);
+            tutorialView.findViewById(R.id.tutorial_table_beginner).setVisibility(View.GONE);
+            ((TextView)tutorialView.findViewById(R.id.tutorial_intermediate_textview)).setText(R.string.info_expert_unlocked);
+        }
+        editor.commit();
+        int numberOfGames = sharedPreferences.getInt("number_of_games", 0);
+        double winPercentage = ((double)totalWins/numberOfGames)*100;
+        NumberFormat formatter = new DecimalFormat("#0.00");
+        callGameWonSplash(formatter.format(winPercentage), winStreak);
+    }
+
+    private void initialiseViews(){
+        mContainerView = (ViewGroup) findViewById(R.id.container);
+        numpad = findViewById(R.id.numpad);
+        numpad.setVisibility(View.INVISIBLE);
+        guessText = (TextView)findViewById(R.id.currentGuessView);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toggleNumpad();
+            }
+        });
+        sharedPreferences = getSharedPreferences("flummoxedSharedPreferences", 0);
+        editor = sharedPreferences.edit();
+    }
+
+    private void newGameCounter(){
+        int totalNumberOfGames = sharedPreferences.getInt("number_of_games", 0);
+        totalNumberOfGames++;
+        editor.putInt("number_of_games",totalNumberOfGames);
+        editor.commit();
+    }
+
+    private void showTutorial(){
+        boolean tutorialComplete;
+        switch (difficultyLevel.toLowerCase()){
+            case "beginner":
+                tutorialComplete = sharedPreferences.getBoolean("beginnerTutoralComplete", false);
+                if(!tutorialComplete){
+                    ViewGroup tutorialView = (ViewGroup) findViewById(R.id.info_indicator_layout);
+                    tutorialView.setVisibility(View.VISIBLE);
+                    tutorialView.findViewById(R.id.tutorial_table_beginner).setVisibility(View.VISIBLE);
+                    tutorialView.findViewById(R.id.tutorial_table_intermediate).setVisibility(View.GONE);
+                }else {
+                    if(totalWins==1){
+                        ViewGroup tutorialView = (ViewGroup) findViewById(R.id.info_indicator_layout);
+                        tutorialView.setVisibility(View.VISIBLE);
+                        ((TextView)tutorialView.findViewById(R.id.info_text_view)).setText("Unlock Next Level");
+                        tutorialView.findViewById(R.id.tutorial_table_beginner).setVisibility(View.INVISIBLE);
+                        tutorialView.findViewById(R.id.intermed_image_button).setVisibility(View.GONE);
+                        tutorialView.findViewById(R.id.tutorial_table_intermediate).setVisibility(View.VISIBLE);
+                        ((TextView)tutorialView.findViewById(R.id.tutorial_intermediate_textview)).setText(R.string.tutorial_unlock_next_level);
+                    }
+                }
+                break;
+            case "intermediate":
+                tutorialComplete = sharedPreferences.getBoolean("intermediateTutoralComplete", false);
+                if(!tutorialComplete){
+                    ViewGroup tutorialView = (ViewGroup) findViewById(R.id.info_indicator_layout);
+                    tutorialView.setVisibility(View.VISIBLE);
+                    tutorialView.findViewById(R.id.tutorial_table_intermediate).setVisibility(View.VISIBLE);
+                    tutorialView.findViewById(R.id.tutorial_table_beginner).setVisibility(View.GONE);
+                }
+                break;
+            case "expert":
+                tutorialComplete = sharedPreferences.getBoolean("expertTutoralComplete", false);
+                if(!tutorialComplete){
+                    ViewGroup tutorialView = (ViewGroup) findViewById(R.id.info_indicator_layout);
+                    tutorialView.setVisibility(View.VISIBLE);
+                    ((TextView)tutorialView.findViewById(R.id.tutorial_intermediate_textview)).setText(R.string.tutorial_expert_game);
+                    tutorialView.findViewById(R.id.tutorial_table_intermediate).setVisibility(View.VISIBLE);
+                    tutorialView.findViewById(R.id.tutorial_table_beginner).setVisibility(View.GONE);
+                }
+        }
+    }
+
+    private int getNumberOfLives(){
+        switch (difficultyLevel.toLowerCase()){
+            case "beginner":
+                winStreak = sharedPreferences.getInt("winStreakBeginner", 0);
+                totalWins = sharedPreferences.getInt("totalWinsBeginner", 0);
+                return 8;
+            case "intermediate":
+                winStreak = sharedPreferences.getInt("winStreakIntermediate", 0);
+                totalWins = sharedPreferences.getInt("totalWinsIntermediate", 0);
+                return 9;
+            case "expert":
+                winStreak = sharedPreferences.getInt("winStreakExpert", 0);
+                totalWins = sharedPreferences.getInt("totalWinsExpert", 0);
+                return 10;
+        }
+        return 10;
+    }
+
+    private void setStartingLivesImage(int numberOfLives) {
+        String lifeImage = "life_number_" + numberOfLives;
+        ImageView lifeCounter = (ImageView) findViewById(R.id.lifeCounterImageView);
+        lifeCounter.setImageResource(getResources().getIdentifier(lifeImage, "drawable", "com.apps.jamesbuckley.flummoxed"));
     }
 
 }

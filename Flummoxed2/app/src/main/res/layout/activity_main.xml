@@ -99,6 +99,108 @@
         android:background="#aaFFFFFF"
         android:visibility="invisible"/>
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/green_rounded_rectangle"
+        android:id="@+id/info_indicator_layout"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tutorial_info_container">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextIcons"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textAlignment="textStart"
+                android:text="Gameplay"
+                android:id="@+id/info_text_view"/>
+            <ImageButton
+                android:layout_width="32dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/hide_button"
+                android:onClick="hideTutorial"/>
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tutorial_info_container"
+            android:id="@+id/tutorial_table_beginner">
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:background="@drawable/green_ball"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextIcons"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Indicates correct digit in correct position"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:background="@drawable/yellow_ball"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextIcons"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Indicates correct digit in incorrect position"/>
+            </TableRow>
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+                <ImageView
+                    android:background="@drawable/hollow_yellow"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorTextIcons"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:text="Indicates incorrect digit"/>
+            </TableRow>
+        </TableLayout>
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tutorial_info_container"
+            android:id="@+id/tutorial_table_intermediate"
+            android:visibility="gone">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+            <ImageView
+                android:background="@drawable/hollow_yellow"
+                android:id="@+id/intermed_image_button"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextIcons"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:text="@string/tutorial_intermediate_game"
+                android:id="@+id/tutorial_intermediate_textview"/>
+        </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
     <include
         android:id="@+id/game_over_splash"
         layout="@layout/game_over_splash"

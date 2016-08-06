@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">Flummoxed</string>
     <string name="action_settings">Settings</string>
+
+
+
+
+
+
+
+    <string name="tutorial_beginner_game">Welcome to Flummoxed!
+Crack the 5 digit code using the feedback and logic"</string>
+    <string name="tutorial_intermediate_game">"In Intermediate, this feedback is temporary.
+You must rely on memory and logic to solve"</string>
+    <string name="tutorial_expert_game">"In Expert, this feedback not given.
+Logically find the answer from your guesses"</string>
+    <string name="tutorial_unlock_next_level">Get a win streak of 5 to unlock
+the next difficulty level</string>
+    <string name="info_intermediate_unlocked">Intermediate mode unlocked from main
+    menu</string>
+        <string name="info_expert_unlocked">Expert mode unlocked from main
+    menu</string>
 </resources>

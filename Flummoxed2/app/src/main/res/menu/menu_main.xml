@@ -2,6 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.apps.jamesbuckley.flummoxed.MainActivity">
+
+    <item
+        android:id="@+id/new_game_action"
+        android:title="New Game" />
+    <item
+        android:id="@+id/main_menu_action"
+        android:title="Main Menu" />
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
