@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private MediaPlayer mp;
     private MediaPlayer winningMedia;
     private MediaPlayer losingMedia;
+    int numberOfGames;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,9 +89,10 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }else if(id == R.id.new_game_action){
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }else
+        if(id == R.id.new_game_action){
             //pass in any view, not used in restart
             winStreak=0;
             switch (difficultyLevel.toLowerCase()){
@@ -389,7 +391,6 @@ public class MainActivity extends AppCompatActivity {
             editor.putBoolean("showExpertUnlocked", false);
         }
         editor.commit();
-        int numberOfGames = sharedPreferences.getInt("number_of_games", 0);
         double winPercentage = ((double)totalWins/numberOfGames)*100;
         NumberFormat formatter = new DecimalFormat("#0.00");
         callGameWonSplash(formatter.format(winPercentage), winStreak);
@@ -413,9 +414,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void newGameCounter(){
-        int totalNumberOfGames = sharedPreferences.getInt("number_of_games", 0);
-        totalNumberOfGames++;
-        editor.putInt("number_of_games",totalNumberOfGames);
+        switch (difficultyLevel.toLowerCase()){
+            case "beginner":
+                numberOfGames = sharedPreferences.getInt("number_of_beginner_games", 0);
+                numberOfGames++;
+                editor.putInt("number_of_beginner_games",numberOfGames);
+                break;
+            case "intermediate":
+                numberOfGames = sharedPreferences.getInt("number_of_intermediate_games", 0);
+                numberOfGames++;
+                editor.putInt("number_of_intermediate_games",numberOfGames);
+                break;
+            case "expert":
+                numberOfGames = sharedPreferences.getInt("number_of_expert_games", 0);
+                numberOfGames++;
+                editor.putInt("number_of_expert_games",numberOfGames);
+        }
+
         editor.commit();
     }
 
@@ -447,7 +462,6 @@ public class MainActivity extends AppCompatActivity {
                     ViewGroup tutorialView = (ViewGroup) findViewById(R.id.info_indicator_layout);
                     tutorialView.setVisibility(View.VISIBLE);
                     tutorialView.findViewById(R.id.tutorial_table_intermediate).setVisibility(View.VISIBLE);
-                    tutorialView.findViewById(R.id.intermed_image_button).setVisibility(View.GONE);
                     tutorialView.findViewById(R.id.tutorial_table_beginner).setVisibility(View.GONE);
                 }
                 break;
@@ -458,7 +472,6 @@ public class MainActivity extends AppCompatActivity {
                     tutorialView.setVisibility(View.VISIBLE);
                     ((TextView)tutorialView.findViewById(R.id.tutorial_intermediate_textview)).setText(R.string.tutorial_expert_game);
                     tutorialView.findViewById(R.id.tutorial_table_intermediate).setVisibility(View.VISIBLE);
-                    tutorialView.findViewById(R.id.intermed_image_button).setVisibility(View.GONE);
                     tutorialView.findViewById(R.id.tutorial_table_beginner).setVisibility(View.GONE);
                 }
         }
@@ -497,6 +510,7 @@ public class MainActivity extends AppCompatActivity {
                     ((TextView)tutorialView.findViewById(R.id.info_text_view)).setText("Intermediate Unlocked");
                     tutorialView.findViewById(R.id.tutorial_table_beginner).setVisibility(View.GONE);
                     tutorialView.findViewById(R.id.tutorial_table_intermediate).setVisibility(View.VISIBLE);
+                    tutorialView.findViewById(R.id.intermed_image_button).setVisibility(View.GONE);
                     ((TextView)tutorialView.findViewById(R.id.tutorial_intermediate_textview)).setText(R.string.info_intermediate_unlocked);
                 }
             case "intermediate":
@@ -506,6 +520,7 @@ public class MainActivity extends AppCompatActivity {
                     ((TextView)tutorialView.findViewById(R.id.info_text_view)).setText("Expert Unlocked");
                     tutorialView.findViewById(R.id.tutorial_table_intermediate).setVisibility(View.VISIBLE);
                     tutorialView.findViewById(R.id.tutorial_table_beginner).setVisibility(View.GONE);
+                    tutorialView.findViewById(R.id.intermed_image_button).setVisibility(View.GONE);
                     ((TextView)tutorialView.findViewById(R.id.tutorial_intermediate_textview)).setText(R.string.info_expert_unlocked);
                 }
         }
